@@ -3,8 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use TopicPresentation;
-use User;
 
 class Topic extends Model
 {

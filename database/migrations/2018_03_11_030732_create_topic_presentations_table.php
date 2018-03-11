@@ -29,10 +29,10 @@ class CreateTopicPresentationsTable extends Migration
 
             // whether or not the presentor enjoyed this presentation
             // it's entirely subjective, and could be for any number of reasons; but it's helpful to display the overall "feeling" of the topic, for all presentations
-            $table->boolean('was_enjoyed');
+            $table->boolean('was_enjoyed')->default(false);
 
             // this affects feedback and nerves, might not be apparent from year/month alone
-            $table->boolean('was_first_time_presenting_topic');
+            $table->boolean('was_first_time_presenting_topic')->default(false);
 
             $table->integer('topic_id');
             $table->timestamps();
