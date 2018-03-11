@@ -10,6 +10,7 @@
                         @foreach ($user->topics as $topic)
                             <li>
                                 <h2>{{ $topic->name }}</h2>
+                                (<a href="{{ route('topics.reports.show', [$topic]) }}">report topic</a>)
                                 <h3>Abstract</h3>
                                 <p>
                                     @markdown($topic->abstract)
