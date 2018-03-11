@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('topics', 'TopicsController')->middleware('auth');
 Route::resource('topics.presentations', 'TopicPresentationsController')->middleware('auth');
 Route::resource('topics.presentations.feedback', 'TopicPresentationFeedbackController')->middleware('auth');
+
+Route::get('/settings', 'UsersController@settings')->middleware('auth')->name('users.settings');
+Route::patch('/settings', 'UsersController@update')->middleware('auth')->name('users.update');

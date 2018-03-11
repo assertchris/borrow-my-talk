@@ -43,8 +43,12 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('topics.index') }}">
+                                    <a class="dropdown-item" href="{{ route('topics.index') }}">
                                         {{ __('My topics') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('users.settings') }}">
+                                        {{ __('My settings') }}
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
