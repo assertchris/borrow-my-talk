@@ -10,7 +10,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('markdown', function ($expression) {
-            return "<?php print (new \League\CommonMark\CommonMarkConverter())->convertToHtml($expression); ?>";
+            return "<?php print Facades\App\Markdown\Converter::render($expression); ?>";
         });
     }
 }
