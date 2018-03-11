@@ -46,7 +46,7 @@
                                                     @if ($presentation->was_enjoyed)
                                                         {{ $user->name }} enjoyed presenting this.
                                                     @endif
-                                                    @if ($presentation->was_enjoyed)
+                                                    @if ($presentation->was_first_time_presenting_topic)
                                                         It was the first time {{ $user->name }} presented this topic.
                                                     @endif
                                                 </p>
