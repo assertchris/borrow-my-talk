@@ -24,8 +24,10 @@ class TopicsController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'abstract' => 'required',
-            'includes-mentoring' => 'boolean',
-            'willing-to-present' => 'boolean',
+            'slides' => 'nullable|url',
+            'video' => 'nullable|url',
+            'includes-mentoring' => 'nullable|boolean',
+            'willing-to-present' => 'nullable|boolean',
         ]);
 
         $topic = Topic::create([
@@ -54,8 +56,10 @@ class TopicsController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'abstract' => 'required',
-            'includes-mentoring' => 'boolean',
-            'willing-to-present' => 'boolean',
+            'slides' => 'nullable|url',
+            'video' => 'nullable|url',
+            'includes-mentoring' => 'nullable|boolean',
+            'willing-to-present' => 'nullable|boolean',
         ]);
         
         $topic->name = $request->input('name');

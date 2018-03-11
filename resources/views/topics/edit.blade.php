@@ -7,7 +7,8 @@
                 <form method="post" action="{{ route('topics.update', [$topic]) }}" enctype="multipart/form-data">
                     @method("PATCH")
                     @csrf
-                    <h1>Submit a topic</h1>
+                    
+                    <h1>Update a topic</h1>
                     
                     @if ($errors->any())
                         <div class="alert alert-danger">
