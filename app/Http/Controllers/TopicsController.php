@@ -7,6 +7,23 @@ use Illuminate\Http\Request;
 
 class TopicsController extends Controller
 {
+    public function search(Request $request)
+    {
+        $limit = 5;
+        $query = $request->get('query');
+
+        if (empty($query)) {
+            $topics = Topic::orderBy("created_at", "desc")->paginate($limit);
+        } else {
+            $topics = Topic::search($query)->orderBy("created_at", "desc")->paginate($limit);
+        }
+
+        return view('topics.search', [
+            'query' => $query,
+            'topics' => $topics,
+        ]);
+    }
+
     public function index()
     {
         return view('topics.index', [

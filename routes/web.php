@@ -30,3 +30,5 @@ Route::get('/creator/{handle}', 'UsersController@profile')->name('users.profile'
 
 Route::get('/topics/{topic}/report', 'ReportsController@show')->name('topics.reports.show');
 Route::post('/topics/{topic}/report', 'ReportsController@send')->name('topics.reports.send');
+
+Route::get('/search', 'TopicsController@search')->name('topics.search');
