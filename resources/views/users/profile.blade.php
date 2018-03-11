@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h1>{{ $user->name }}</h1>
-                @if ($user->topics)
+                @if ($user->topics->count())
                     <ol>
                         @foreach ($user->topics as $topic)
                             <li>
@@ -21,7 +21,7 @@
                                     </p>
                                 @endif
                                 <h3>Presentations</h3>
-                                @if ($topic->presentations)
+                                @if ($topic->presentations->count())
                                     <ol>
                                         @foreach ($topic->presentations as $presentation)
                                             <li>
@@ -50,7 +50,7 @@
                                                     @endif
                                                 </p>
                                                 <h5>Feedback</h5>
-                                                @if ($presentation->feedback)
+                                                @if ($presentation->feedback->count())
                                                     <ol>
                                                         @foreach ($presentation->feedback as $next)
                                                             <li><a href="{{ $next->link }}">{{ $next->link }}</a></li>
@@ -66,7 +66,7 @@
                                     </ol>
                                 @else
                                     <p>
-                                        This topic haasn't been presented yet.
+                                        This topic hasn't been presented yet.
                                     </p>
                                 @endif
                                 <hr>

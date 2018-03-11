@@ -21,5 +21,14 @@ I want to show you how to build them, and the relationship they have to programm
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+
+        DB::table('topics')->insert([
+            'name' => 'Plagiarised Topic',
+            'abstract' => 'This content doesn\'t really matter...',
+            'user_id' => DB::table('users')->where('email', 'cgpitt@gmail.com')->first()->id,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'hidden_at' => Carbon::now(),
+        ]);
     }
 }
