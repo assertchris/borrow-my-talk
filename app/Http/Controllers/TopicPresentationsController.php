@@ -67,17 +67,13 @@ class TopicPresentationsController extends Controller
         $presentation->was_first_time_presenting_topic = $request->input('was-first-time-presenting-topic') ? true : false;
         $presentation->save();
 
-        return redirect()->route('topics.presentations.index', [
-            'topic' => $topic,
-        ]);
+        return redirect()->route('topics.presentations.index', [$topic]);
     }
 
     public function destroy(Topic $topic, TopicPresentation $presentation)
     {
         $presentation->delete();
 
-        return redirect()->route('topics.presentations.index', [
-            'topic' => $topic,
-        ]);
+        return redirect()->route('topics.presentations.index', [$topic]);
     }
 }
