@@ -51,6 +51,10 @@
                                         {{ __('My settings') }}
                                     </a>
 
+                                    <a class="dropdown-item" href="{{ route('users.profile', [auth()->user()->handle]) }}">
+                                        {{ __('My profile') }}
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
