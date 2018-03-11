@@ -25,3 +25,5 @@ Route::resource('topics.presentations.feedback', 'TopicPresentationFeedbackContr
 
 Route::get('/settings', 'UsersController@settings')->middleware('auth')->name('users.settings');
 Route::patch('/settings', 'UsersController@update')->middleware('auth')->name('users.update');
+
+Route::get('/creator/{handle}', 'UsersController@profile')->name('users.profile');

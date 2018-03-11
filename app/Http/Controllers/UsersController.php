@@ -35,4 +35,11 @@ class UsersController extends Controller
 
         return redirect('/home');
     }
+    
+    public function profile()
+    {
+        return view('users.profile', [
+            'user' => auth()->user(),
+        ]);
+    }
 }
