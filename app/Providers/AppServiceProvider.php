@@ -13,4 +13,11 @@ class AppServiceProvider extends ServiceProvider
             return "<?php print Facades\App\Markdown\Converter::render($expression); ?>";
         });
     }
+
+    public function register()
+    {
+        if ($this->app->environment() === "local") {
+            $this->app->register(\Laravel\Dusk\DuskServiceProvider::class);
+        }
+    }
 }
