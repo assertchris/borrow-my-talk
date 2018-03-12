@@ -1,6 +1,6 @@
 # Borrow My Topic
 
-An experiment, by [Jeff Madsen](https://twitter.com/codebyjeff) and [Christopher Pitt](https://twitter.com/assertchris).
+An experiment, by [Jeff Madsen](https://twitter.com/codebyjeff), [Miguel Piedrafita](https://twitter.com/m1guelpf), and [Christopher Pitt](https://twitter.com/assertchris).
 
 ## Who this is for
 
