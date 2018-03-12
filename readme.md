@@ -1,5 +1,7 @@
 # Borrow My Topic
 
+[![Build Status](https://travis-ci.org/assertchris/borrow-my-topic.svg?branch=master)](https://travis-ci.org/assertchris/borrow-my-topic)
+
 An experiment, by [Jeff Madsen](https://twitter.com/codebyjeff), [Miguel Piedrafita](https://twitter.com/m1guelpf), and [Christopher Pitt](https://twitter.com/assertchris).
 
 ## Who this is for
