@@ -9,18 +9,14 @@
                     <ol>
                         @foreach ($user->topics as $topic)
                             <li>
-                                <h2>{{ $topic->name }}</h2>
+                                <a href="{{ route('topics.show', [$topic]) }}">
+                                    <h2>{{ $topic->name }}</h2>
+                                </a>
                                 (<a href="{{ route('topics.reports.show', [$topic]) }}">report topic</a>)
                                 <h3>Abstract</h3>
                                 <p>
-                                    @markdown($topic->abstract)
+                                    @markdown(str_limit($topic->abstract, 250))
                                 </p>
-                                @if ($topic->additional)
-                                    <h3>Additional</h3>
-                                    <p>
-                                        @markdown($topic->additional)
-                                    </p>
-                                @endif
                                 <h3>Presentations</h3>
                                 @if ($topic->presentations->count())
                                     <ol>
@@ -36,32 +32,6 @@
                                                         @endif
                                                     )
                                                 </h4>
-                                                @if ($presentation->additional)
-                                                    <h5>Additional</h5>
-                                                    <p>
-                                                        @markdown($presentation->additional)
-                                                    </p>
-                                                @endif
-                                                <p>
-                                                    @if ($presentation->was_enjoyed)
-                                                        {{ $user->name }} enjoyed presenting this.
-                                                    @endif
-                                                    @if ($presentation->was_first_time_presenting_topic)
-                                                        It was the first time {{ $user->name }} presented this topic.
-                                                    @endif
-                                                </p>
-                                                <h5>Feedback</h5>
-                                                @if ($presentation->feedback->count())
-                                                    <ol>
-                                                        @foreach ($presentation->feedback as $next)
-                                                            <li><a href="{{ $next->link }}">{{ $next->link }}</a></li>
-                                                        @endforeach
-                                                    </ol>
-                                                @else
-                                                    <p>
-                                                        There's no feedback for this presentation.
-                                                    </p>
-                                                @endif
                                             </li>
                                         @endforeach
                                     </ol>

@@ -2,53 +2,44 @@
 
 namespace App\Providers;
 
+use App\Topic;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * This namespace is applied to your controller routes.
-     *
-     * In addition, it is set as the URL generator's root namespace.
-     *
-     * @var string
-     */
     protected $namespace = 'App\Http\Controllers';
 
-    /**
-     * Define your route model bindings, pattern filters, etc.
-     *
-     * @return void
-     */
     public function boot()
     {
-        //
-
         parent::boot();
+
+        // we want to allow hidden topics to be edited so that
+        // they can be changed by the creator for re-approval
+        Route::bind('topic', function ($id) {
+
+            // ...but, if the topic is hidden, we don't want it to be visible
+            // to users other than the owner or an admin (still to implement)
+            $topic = Topic::withoutGlobalScope('filtered')->findOrFail($id);
+
+            if ($topic->hidden_at) {
+                $user = auth()->user();
+
+                if (!$user || (int) $user->id !== (int) $topic->user_id) {
+                    abort(404);
+                }
+            }
+
+            return $topic;
+        });
     }
 
-    /**
-     * Define the routes for the application.
-     *
-     * @return void
-     */
     public function map()
     {
         $this->mapApiRoutes();
-
         $this->mapWebRoutes();
-
-        //
     }
 
-    /**
-     * Define the "web" routes for the application.
-     *
-     * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
-     */
     protected function mapWebRoutes()
     {
         Route::middleware('web')
@@ -56,13 +47,6 @@ class RouteServiceProvider extends ServiceProvider
              ->group(base_path('routes/web.php'));
     }
 
-    /**
-     * Define the "api" routes for the application.
-     *
-     * These routes are typically stateless.
-     *
-     * @return void
-     */
     protected function mapApiRoutes()
     {
         Route::prefix('api')

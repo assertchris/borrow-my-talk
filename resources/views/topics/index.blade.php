@@ -19,6 +19,7 @@
                         </li>
                     @endforeach
                 </ol>
+                {{ $topics->links() }}
             </div>
         </div>
     </div>

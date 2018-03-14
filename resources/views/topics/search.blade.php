@@ -22,7 +22,10 @@
                     <ol>
                         @foreach ($topics as $topic)
                             <li>
-                                <a href="#">{{ $topic->name }}</a>
+                                <a href="{{ route('topics.show', [$topic]) }}">
+                                    <h2>{{ $topic->name }}</h2>
+                                </a>
+                                <p>{{ str_limit($topic->abstract, 250) }}</p>
                             </li>
                         @endforeach
                     </ol>

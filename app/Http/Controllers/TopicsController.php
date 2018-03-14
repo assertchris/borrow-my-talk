@@ -24,10 +24,19 @@ class TopicsController extends Controller
         ]);
     }
 
+    public function show(Topic $topic)
+    {
+        return view('topics.show', [
+            'topic' => $topic,
+        ]);
+    }
+
     public function index()
     {
+        $limit = 15;
+
         return view('topics.index', [
-            'topics' => auth()->user()->topics,
+            'topics' => auth()->user()->everyTopic($limit),
         ]);
     }
 

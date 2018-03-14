@@ -17,7 +17,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('topics', 'TopicsController')->middleware('auth');
+Route::resource('topics', 'TopicsController')->except("show")->middleware('auth');
 Route::resource('topics.presentations', 'TopicPresentationsController')->middleware('auth');
 Route::resource('topics.presentations.feedback', 'TopicPresentationFeedbackController')->middleware('auth');
 
@@ -30,3 +30,4 @@ Route::get('/topics/{topic}/report', 'ReportsController@show')->name('topics.rep
 Route::post('/topics/{topic}/report', 'ReportsController@send')->name('topics.reports.send');
 
 Route::get('/search', 'TopicsController@search')->name('topics.search');
+Route::get('/topics/{topic}', 'TopicsController@show')->name('topics.show');

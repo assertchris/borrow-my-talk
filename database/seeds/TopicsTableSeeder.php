@@ -29,7 +29,7 @@ I want to show you how to build them, and the relationship they have to programm
             'name' => 'Making Games With ReactJS',
             'abstract' => 'ReactJS has fundamentally changed how we think about building interfaces. Using the same tools, we can bring this thinking to SVG, WebGL, and beyond.  Makes you wonder – could we build games using ReactJS?
 
-In this talk, we\ll build a platform game, using ReactJS.',
+In this talk, we\'ll build a platform game, using ReactJS.',
             'willing_to_present' => true,
             'user_id' => $user->id,
             'created_at' => $now,
