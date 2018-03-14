@@ -34,6 +34,12 @@ class SearchTest extends DuskTestCase
 
     public function test_algolia_search()
     {
-        $this->markTestIncomplete('Unsure how to store Algolia details well');
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->visit('/search')
+                ->type('@query', 'zomby')
+                ->click('@submit')
+                ->assertSee('Zombies and Binary');
+        });
     }
 }

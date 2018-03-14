@@ -14,7 +14,7 @@ class HiddenTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser
-                ->visit('/topics/' . $this->getTopic()->id)
+                ->visit(route('topics.show', $this->getTopic()))
                 ->assertSee('could not be found');
         });
     }
@@ -34,13 +34,13 @@ class HiddenTest extends DuskTestCase
         // let's check the first 3 search pages...
         $this->browse(function (Browser $browser) {
             $browser
-                ->visit('/search')
+                ->visit(route('topics.search'))
                 ->assertNotSee($this->getTopic()->name)
-                ->visit('/search?page=1')
+                ->visit(route('topics.search') . '?page=1')
                 ->assertNotSee($this->getTopic()->name)
-                ->visit('/search?page=2')
+                ->visit(route('topics.search') . '?page=2')
                 ->assertNotSee($this->getTopic()->name)
-                ->visit('/search?page=3')
+                ->visit(route('topics.search') . '?page=3')
                 ->assertNotSee($this->getTopic()->name);
         });
     }

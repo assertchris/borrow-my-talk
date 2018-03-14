@@ -14,7 +14,7 @@ class HiddenTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->getUser())
-                ->visit('/topics')
+                ->visit(route('topics.index'))
                 ->assertSee($this->getTopic()->name);
         });
     }
@@ -33,7 +33,7 @@ class HiddenTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs($this->getUser())
-                ->visit('/topics/' . $this->getTopic()->id . '/edit')
+                ->visit(route('topics.edit', $this->getTopic()))
                 ->assertSee($this->getTopic()->name)
                 ->assertSee('This topic has been hidden.');
         });
