@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h1>{{ $user->name }}</h1>
-                @if ($user->topics->count())
+                @if ($topics->count())
                     <ol>
-                        @foreach ($user->topics as $topic)
+                        @foreach ($topics as $topic)
                             <li>
                                 <a href="{{ route('topics.show', [$topic]) }}">
                                     <h2>{{ $topic->name }}</h2>

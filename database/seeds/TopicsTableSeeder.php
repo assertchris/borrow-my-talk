@@ -21,7 +21,7 @@ I want to show you how to build them, and the relationship they have to programm
             'video' => 'https://www.youtube.com/watch?v=APJRBZUxADQ',
             'willing_to_present' => true,
             'user_id' => $user->id,
-            'created_at' => $now,
+            'created_at' => $now->addMinute(),
             'updated_at' => $now,
         ]);
 
@@ -32,7 +32,7 @@ I want to show you how to build them, and the relationship they have to programm
 In this talk, we\'ll build a platform game, using ReactJS.',
             'willing_to_present' => true,
             'user_id' => $user->id,
-            'created_at' => $now,
+            'created_at' => $now->addMinute(),
             'updated_at' => $now,
         ]);
 
@@ -45,7 +45,7 @@ Over the last few years, I\'ve built all sorts of useful robots (Internet of Thi
 And I found all of these could be built using little more than the familiar PHP code I was using in my 9-to-5. Join me as I show you some of the cool things you can do, with an Arduino, some useful PHP libraries, and a lot of imagination. ',
             'willing_to_present' => true,
             'user_id' => $user->id,
-            'created_at' => $now,
+            'created_at' => $now->addMinute(),
             'updated_at' => $now,
         ]);
 
@@ -58,7 +58,7 @@ Generators were added in PHP 5.5. These were originally meant to add syntactic s
 We take a look at how generators can be used for iteration, and how iteration and interruptibility are two sides to the same coin. There\'s hand-on code, as I show you how to build a multitasking system in 100 lines of code. Finally we look at a few popular projects that use this mechanic to facilitate common programming tasks using interruptible functions.',
             'willing_to_present' => true,
             'user_id' => $user->id,
-            'created_at' => $now,
+            'created_at' => $now->addMinute(),
             'updated_at' => $now,
         ]);
 
@@ -71,7 +71,7 @@ Take Monads, for instance. Many developers haven\'t even heard the name, much le
 In this talk, we\'ll gain a clear and simple understanding of what Monads are, and how they can help us to refactor our code to be clear and concise.',
             'willing_to_present' => true,
             'user_id' => $user->id,
-            'created_at' => $now,
+            'created_at' => $now->addMinute(),
             'updated_at' => $now,
         ]);
 
@@ -84,7 +84,7 @@ You can have those things, and you don\'t even have to write C to do it.
 I’m going to introduce you to a library that will allow you to use preprocessor macros, to turn your desired bit of syntax into valid PHP syntax. Then I’m going to show you a few libraries that use those macros to bring fresh and interesting new syntax to everyday PHP applications.',
             'willing_to_present' => true,
             'user_id' => $user->id,
-            'created_at' => $now,
+            'created_at' => $now->addMinute(),
             'updated_at' => $now,
         ]);
 
@@ -114,7 +114,7 @@ Some topics we\'ll cover:
 * Deploying and hosting, with TLS',
             'willing_to_present' => true,
             'user_id' => $user->id,
-            'created_at' => $now,
+            'created_at' => $now->addMinute(),
             'updated_at' => $now,
         ]);
 
@@ -123,7 +123,7 @@ Some topics we\'ll cover:
             'abstract' => 'Got an idea for a product or service? Laravel is the perfect framework to get you up and running, fast! In this workshop, we\'ll take a simple product idea and build it into a live web app. We\'ll learn about how to set build PHP application logic, how to bolt on a Javascript front-end, how to deploy with Forge, and even how to manage domains and SSL certificates. By the end, you\'ll know everything you need to make your idea a reality.',
             'willing_to_present' => true,
             'user_id' => $user->id,
-            'created_at' => $now,
+            'created_at' => $now->addMinute(),
             'updated_at' => $now,
         ]);
 
@@ -131,7 +131,7 @@ Some topics we\'ll cover:
             'name' => 'Plagiarised Topic',
             'abstract' => 'This content doesn\'t really matter...',
             'user_id' => $user->id,
-            'created_at' => $now,
+            'created_at' => $now->addMinute(),
             'updated_at' => $now,
             'hidden_at' => $now,
         ]);

@@ -40,8 +40,12 @@ class UsersController extends Controller
     
     public function profile()
     {
+        $user = auth()->user();
+        $topics = $user->topics()->orderBy('name', 'asc')->get();
+
         return view('users.profile', [
-            'user' => auth()->user(),
+            'user' => $user,
+            'topics' => $topics,
         ]);
     }
 }
