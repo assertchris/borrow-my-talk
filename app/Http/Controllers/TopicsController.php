@@ -9,8 +9,8 @@ class TopicsController extends Controller
 {
     public function search(Request $request)
     {
-        $limit = 5;
         $query = $request->get('query');
+        $limit = config('borrow.topics.limits.search');
 
         if (empty($query)) {
             $topics = Topic::orderBy("created_at", "desc")->paginate($limit);
@@ -33,7 +33,7 @@ class TopicsController extends Controller
 
     public function index()
     {
-        $limit = 15;
+        $limit = config('borrow.topics.limits.index');
 
         return view('topics.index', [
             'topics' => auth()->user()->everyTopic($limit),
