@@ -9,6 +9,12 @@
                     @csrf
                     
                     <h1>Update a topic</h1>
+
+                    @if ($topic->hidden_at)
+                        <div class="alert alert-danger">
+                            This topic has been hidden. Please contact an administrator for assistance.
+                        </div>
+                    @endif
                     
                     @if ($errors->any())
                         <div class="alert alert-danger">

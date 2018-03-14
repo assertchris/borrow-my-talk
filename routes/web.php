@@ -17,16 +17,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('topics', 'TopicsController')->middleware('auth');
+Route::resource('topics', 'TopicsController')->except("show")->middleware('auth');
 Route::resource('topics.presentations', 'TopicPresentationsController')->middleware('auth');
 Route::resource('topics.presentations.feedback', 'TopicPresentationFeedbackController')->middleware('auth');
 
 Route::get('/settings', 'UsersController@settings')->middleware('auth')->name('users.settings');
 Route::patch('/settings', 'UsersController@update')->middleware('auth')->name('users.update');
 
-Route::get('/creator/{handle}', 'UsersController@profile')->name('users.profile');
-
 Route::get('/topics/{topic}/report', 'ReportsController@show')->name('topics.reports.show');
 Route::post('/topics/{topic}/report', 'ReportsController@send')->name('topics.reports.send');
 
 Route::get('/search', 'TopicsController@search')->name('topics.search');
+Route::get('/topics/{topic}', 'TopicsController@show')->name('topics.show');
+
+Route::get('/profile/{handle}', 'UsersController@profile')->name('users.profile');

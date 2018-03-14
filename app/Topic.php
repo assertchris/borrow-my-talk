@@ -21,6 +21,10 @@ class Topic extends Model
         'user_id',
     ];
 
+    protected $casts = [
+        'user_id' => 'integer',
+    ];
+
     protected static function boot()
     {
         parent::boot();

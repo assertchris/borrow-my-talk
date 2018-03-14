@@ -27,4 +27,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Topic::class)->whereNull('hidden_at');
     }
+
+    public function everyTopic($limit = null)
+    {
+        $query = Topic::where('user_id', $this->id)->orderBy('name', 'asc')->withoutGlobalScope('filtered');
+
+        if ($limit) {
+            return $query->paginate($limit);
+        }
+
+        return $query->get();
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'handle';
+    }
 }
