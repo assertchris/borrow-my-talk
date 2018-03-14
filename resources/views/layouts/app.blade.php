@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    @if (env('APP_ENV') === 'production')
+    @if (app()->environment('production'))
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115774748-1"></script>
         <script>
         window.dataLayer = window.dataLayer || [];
