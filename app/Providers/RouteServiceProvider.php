@@ -25,7 +25,7 @@ class RouteServiceProvider extends ServiceProvider
             if ($topic->hidden_at) {
                 $user = auth()->user();
 
-                if (!$user || (int) $user->id !== (int) $topic->user_id) {
+                if (!$user || $user->id !== $topic->user_id) {
                     abort(404);
                 }
             }
