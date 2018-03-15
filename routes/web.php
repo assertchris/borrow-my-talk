@@ -31,3 +31,6 @@ Route::get('/search', 'TopicsController@search')->name('topics.search');
 Route::get('/topics/{topic}', 'TopicsController@show')->name('topics.show');
 
 Route::get('/profile/{handle}', 'UsersController@profile')->name('users.profile');
+Route::get('/auth/twitter/redirect', 'UsersController@redirectToTwitter')->name('users.twitter.redirect');
+Route::delete('/auth/twitter/disconnect', 'UsersController@disconnectTwitter')->name('users.twitter.disconnect');
+Route::get('/auth/twitter', 'UsersController@handleTwitterCallback')->name('users.twitter.handle');

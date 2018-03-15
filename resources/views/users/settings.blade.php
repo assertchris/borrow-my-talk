@@ -56,6 +56,18 @@
                     </p>
                     <button dusk="submit" type="submit" class="btn btn-primary">Save</button>
                 </form>
+                <hr>
+                <p>
+                    @if ($user->twitter_id)
+                        <form id="disconnect-twitter" action="{{ route('users.twitter.disconnect')}}" method="POST" style="display: inline">
+                            @method('DELETE')
+                            @csrf
+                            <a href="#" onclick="event.preventDefault(); confirm('Are you sure?') && document.getElementById('disconnect-twitter').submit(); ">Disconnect Twitter</a>
+                        </form>
+                    @else
+                        <a href="{{ route('users.twitter.redirect') }}">Connect Twitter</a>
+                    @endif
+                </p>
             </div>
         </div>
     </div>

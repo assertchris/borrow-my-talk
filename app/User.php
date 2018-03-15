@@ -17,6 +17,8 @@ class User extends Authenticatable
         'handle',
         'from_under_represented_group',
         'from_under_represented_group_additional',
+        'twitter_token',
+        'twitter_auth_at',
     ];
 
     protected $hidden = [

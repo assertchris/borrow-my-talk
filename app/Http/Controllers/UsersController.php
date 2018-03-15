@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Socialite;
 use User;
 
 class UsersController extends Controller
@@ -51,5 +52,34 @@ class UsersController extends Controller
             'user' => $user,
             'topics' => $topics,
         ]);
+    }
+
+    public function redirectToTwitter()
+    {
+        return Socialite::driver('twitter')->redirect();
+    }
+
+    public function handleTwitterCallback()
+    {
+        $data = Socialite::driver('twitter')->user();
+
+        $user = auth()->user();
+        $user->twitter_id = $data->id;
+        $user->twitter_token = $data->token;
+        $user->twitter_token_secret = $data->tokenSecret;
+        $user->save();
+
+        return redirect()->route('users.settings');
+    }
+
+    public function disconnectTwitter()
+    {
+        $user = auth()->user();
+        $user->twitter_id = null;
+        $user->twitter_token = null;
+        $user->twitter_token_secret = null;
+        $user->save();
+
+        return redirect()->route('users.settings');
     }
 }
