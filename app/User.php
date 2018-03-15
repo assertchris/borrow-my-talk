@@ -17,7 +17,9 @@ class User extends Authenticatable
         'handle',
         'from_under_represented_group',
         'from_under_represented_group_additional',
+        'twitter_id',
         'twitter_token',
+        'twitter_token_secret',
         'twitter_auth_at',
     ];
 
