@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Socialite;
@@ -67,6 +68,7 @@ class UsersController extends Controller
         $user->twitter_id = $data->id;
         $user->twitter_token = $data->token;
         $user->twitter_token_secret = $data->tokenSecret;
+        $user->twitter_auth_at = Carbon::now();
         $user->save();
 
         return redirect()->route('users.settings');
@@ -78,6 +80,7 @@ class UsersController extends Controller
         $user->twitter_id = null;
         $user->twitter_token = null;
         $user->twitter_token_secret = null;
+        $user->twitter_auth_at = null;
         $user->save();
 
         return redirect()->route('users.settings');
