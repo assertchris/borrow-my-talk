@@ -27,6 +27,8 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'twitter_id',
+        'twitter_token',
+        'twitter_token_secret',
     ];
 
     protected $dispatchesEvents = [
