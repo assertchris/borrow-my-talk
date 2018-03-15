@@ -26,6 +26,10 @@ class UsersController extends Controller
                 'required',
                 (new Unique('users'))->ignore($user->id),
             ],
+            'handle' => [
+                'required',
+                (new Unique('users'))->ignore($user->id),
+            ],
         ]);
 
         $user->name = $request->input('name');
