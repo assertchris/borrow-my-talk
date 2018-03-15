@@ -22,22 +22,22 @@
 
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" aria-describedby="name-help" placeholder="Enter your name" value="{{ old('name', $user->name) }}">
+                        <input dusk="name" type="text" class="form-control" id="name" name="name" aria-describedby="name-help" placeholder="Enter your name" value="{{ old('name', $user->name) }}">
                         <small id="name-help" class="form-text text-muted">Your name, for emails and your profile page. Use a ficticious name if you don't want people to be able to identify you by your real name</small>
                     </div>
                     <div class="form-group">
                         <label for="handle">Handle</label>
-                        <input type="text" class="form-control" id="handle" name="handle" aria-describedby="handle-help" placeholder="Enter your handle" value="{{ old('handle', $user->handle) }}">
+                        <input dusk="handle" type="text" class="form-control" id="handle" name="handle" aria-describedby="handle-help" placeholder="Enter your handle" value="{{ old('handle', $user->handle) }}">
                         <small id="handle-help" class="form-text text-muted">A name to help others recognise you, for your profile URL and public lists</small>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" aria-describedby="email-help" placeholder="Enter your email" value="{{ old('email', $user->email) }}">
+                        <input dusk="email" type="email" class="form-control" id="email" name="email" aria-describedby="email-help" placeholder="Enter your email" value="{{ old('email', $user->email) }}">
                         <small id="email-help" class="form-text text-muted">Your email address, where we can send notification emails to</small>
                     </div>
                     <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="from-under-represented-group" name="from-under-represented-group" value="1"
+                            <input dusk="from-under-represented-group" class="form-check-input" type="checkbox" id="from-under-represented-group" name="from-under-represented-group" value="1"
                                 @if (old('from-under-represented-group', $user->from_under_represented_group))
                                     checked="checked"
                                 @endif
@@ -48,13 +48,13 @@
                     </div>
                     <div class="form-group">
                         <label for="from-under-represented-group-additional">Additional information</label>
-                        <textarea class="form-control" id="from-under-represented-group-additional" name="from-under-represented-group-additional" aria-describedby="from-under-represented-group-additional-help" placeholder="Enter additional information">{{ old('from-under-represented-group-additional', $user->from_under_represented_group_additional) }}</textarea>
+                        <textarea dusk="from-under-represented-group-additional" class="form-control" id="from-under-represented-group-additional" name="from-under-represented-group-additional" aria-describedby="from-under-represented-group-additional-help" placeholder="Enter additional information">{{ old('from-under-represented-group-additional', $user->from_under_represented_group_additional) }}</textarea>
                         <small id="from-under-represented-group-additional-help" class="form-text text-muted">Would you like to tell us more about why you checked the checkbox? This is also optional, but it may be helpful to publishers looking to improve the diversity of their contributors and to better understand you</small>
                     </div>
                     <p>
                         If you need to reset your password, use the "forgot password" form on the login page.
                     </p>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button dusk="submit" type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
         </div>

@@ -39,7 +39,7 @@ class SearchTest extends DuskTestCase
                 ->visit('/search')
                 ->type('@query', 'zomby')
                 ->click('@submit')
-                ->pause(1000)
+                ->pause(500)
                 ->assertSee('Zombies and Binary');
         });
     }

@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" aria-describedby="name-help" placeholder="Enter a name" value="{{ old('name', $topic->name) }}">
+                        <input dusk="name" type="text" class="form-control" id="name" name="name" aria-describedby="name-help" placeholder="Enter a name" value="{{ old('name', $topic->name) }}">
                         <small id="name-help" class="form-text text-muted">A name to help you recognise the topic in a list</small>
                     </div>
                     <div class="form-group">
