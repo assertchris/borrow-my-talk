@@ -21,12 +21,15 @@ class HiddenTest extends DuskTestCase
 
     private function getUser()
     {
-        return User::where('email', 'cgpitt@gmail.com')->first();
+        return User::where('email', 'cgpitt@gmail.com')
+            ->first();
     }
 
     private function getTopic()
     {
-        return Topic::where('name', 'Plagiarised Topic')->withoutGlobalScope('filtered')->first();
+        return Topic::where('name', 'Plagiarised Topic')
+            ->withoutGlobalScope('filtered')
+            ->first();
     }
 
     public function test_cannot_see_hidden_post_in_search()
