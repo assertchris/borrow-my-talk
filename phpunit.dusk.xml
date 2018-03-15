@@ -18,4 +18,7 @@
             <directory suffix=".php">./app</directory>
         </whitelist>
     </filter>
+    <php>
+        <const name="TEST_PAUSE_DURATION" value="500"/>
+    </php>
 </phpunit>

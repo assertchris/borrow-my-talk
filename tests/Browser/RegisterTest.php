@@ -13,7 +13,7 @@ class RegisterTest extends DuskTestCase
             $browser
                 ->visit('/')
                 ->clickLink('Register')
-                ->assertRouteIs(route('register'));
+                ->assertRouteIs('register');
         });
     }
 

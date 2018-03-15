@@ -80,7 +80,7 @@ class SettingsTest extends DuskTestCase
                 ->check('@from-under-represented-group')
                 ->type('@from-under-represented-group-additional', 'some text here')
                 ->click('@submit')
-                ->pause(500)
+                ->pause(TEST_PAUSE_DURATION)
                 ->visit(route('users.settings'))
                 ->assertValue('@name', $user->name . '123')
                 ->assertValue('@email', $user->email . '123')
