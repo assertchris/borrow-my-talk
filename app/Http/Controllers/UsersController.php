@@ -69,17 +69,12 @@ class UsersController extends Controller
         $data = Socialite::driver('twitter')->user();
 
         if (!$user) {
-            $user = User::firstOrNew(['twitter_id' => $data->id]);
+            $user = User::where('twitter_id', $data->id)->orWhere('email', $data->email)->first();
 
-            if (!$user->name) {
+            if (!$user) {
+                $user = new User();
                 $user->name = $data->name;
-            }
-
-            if (!$user->email) {
                 $user->email = $data->email;
-            }
-
-            if (!$user->password) {
                 $user->password = 'need-to-reset';
             }
 
