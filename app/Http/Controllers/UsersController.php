@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Socialite;
-use User;
 
 class UsersController extends Controller
 {
@@ -62,16 +63,39 @@ class UsersController extends Controller
 
     public function handleTwitterCallback()
     {
+        $user = auth()->user();
+        $redirect = route('users.settings');
+
         $data = Socialite::driver('twitter')->user();
 
-        $user = auth()->user();
+        if (!$user) {
+            $user = User::firstOrNew(['twitter_id' => $data->id]);
+
+            if (!$user->name) {
+                $user->name = $data->name;
+            }
+
+            if (!$user->email) {
+                $user->email = $data->email;
+            }
+
+            if (!$user->password) {
+                $user->password = 'need-to-reset';
+            }
+
+            $redirect = route('home');
+        }
+
         $user->twitter_id = $data->id;
         $user->twitter_token = $data->token;
         $user->twitter_token_secret = $data->tokenSecret;
         $user->twitter_auth_at = Carbon::now();
+
         $user->save();
 
-        return redirect()->route('users.settings');
+        Auth::login($user, true);
+
+        return redirect($redirect);
     }
 
     public function disconnectTwitter()
