@@ -69,6 +69,8 @@
                             </div>
                         </div>
                     </form>
+                    <hr>
+                    <a href="{{ route('users.twitter.redirect') }}">Login with Twitter</a>
                 </div>
             </div>
         </div>
