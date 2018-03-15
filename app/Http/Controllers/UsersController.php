@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Validation\Rules\Unique;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use User;
 
 class UsersController extends Controller
@@ -24,11 +24,11 @@ class UsersController extends Controller
             'handle' => 'required|alpha_dash',
             'email' => [
                 'required',
-                (new Unique('users'))->ignore($user->id),
+                Rule::unique('users')->ignore($user->id),
             ],
             'handle' => [
                 'required',
-                (new Unique('users'))->ignore($user->id),
+                Rule::unique('users')->ignore($user->id),
             ],
         ]);
 
