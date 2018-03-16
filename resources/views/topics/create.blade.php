@@ -9,15 +9,7 @@
 
                     <h1>Submit a topic</h1>
                     
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    @include('_partials.errors')
 
                     <div class="form-group">
                         <label for="name">Name</label>
