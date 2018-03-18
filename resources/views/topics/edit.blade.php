@@ -16,7 +16,7 @@
                         </div>
                     @endif
                     
-                    @include('_partials.errors')
+                    @include('includes.errors')
 
                     <div class="form-group">
                         <label for="name">Name</label>

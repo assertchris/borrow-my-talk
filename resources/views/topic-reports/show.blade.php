@@ -9,7 +9,7 @@
 
                     <h1>Report {{ $topic->name }}</h1>
                     
-                    @include('_partials.errors')
+                    @include('includes.errors')
 
                     <div class="form-group">
                         <label for="reasons">Reason(s)</label>

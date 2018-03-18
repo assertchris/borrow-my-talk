@@ -10,7 +10,7 @@
                     
                     <h1>Update a presentation</h1>
                     
-                    @include('_partials.errors')
+                    @include('includes.errors')
 
                     <div class="form-group">
                         <label for="medium">Medium</label>
