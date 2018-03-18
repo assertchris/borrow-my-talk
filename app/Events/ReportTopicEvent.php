@@ -13,7 +13,7 @@ class ReportTopicEvent
     public $reasons;
     public $links;
 
-    public function __construct(Topic $topic, string $reasons, string $links)
+    public function __construct(Topic $topic, string $reasons, string $links = null)
     {
         $this->topic = $topic;
         $this->reasons = $reasons;
