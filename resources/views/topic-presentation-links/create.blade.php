@@ -4,10 +4,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form method="post" action="{{ route('topics.presentations.feedback.store', [$topic, $presentation]) }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('topics.presentations.links.store', [$topic, $presentation]) }}" enctype="multipart/form-data">
                     @csrf
 
-                    <h1>Add a presentation</h1>
+                    <h1>Add a link</h1>
                     
                     @include('includes.errors')
 

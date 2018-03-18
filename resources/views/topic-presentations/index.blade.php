@@ -17,7 +17,7 @@
                                     ({{ $presentation->year }})
                                 @endif
                             </a> •
-                            <a href="{{ route('topics.presentations.feedback.index', [$topic, $presentation]) }}">feedback</a> •
+                            <a href="{{ route('topics.presentations.links.index', [$topic, $presentation]) }}">links</a> •
                             <form id="delete-{{ $presentation->id }}" action="{{ route('topics.presentations.destroy', [$topic, $presentation])}}" method="POST" style="display: inline">
                                 @method('DELETE')
                                 @csrf

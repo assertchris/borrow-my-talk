@@ -9,6 +9,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(TopicsTableSeeder::class);
         $this->call(TopicPresentationsTableSeeder::class);
-        $this->call(TopicPresentationFeedbackTableSeeder::class);
+        $this->call(TopicPresentationLinksTableSeeder::class);
     }
 }

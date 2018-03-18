@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h1>Feedback for {{ $topic->name }}</h1>
+                <h1>Links for {{ $topic->name }}</h1>
                 <h2>
                     on {{ $presentation->name }}
                     @if ($presentation->month)
@@ -13,15 +13,15 @@
                         ({{ $presentation->year }})
                     @endif
                 </h2>
-                <a href="{{ route('topics.presentations.feedback.create', [$topic, $presentation]) }}">Add some feedback</a>
+                <a href="{{ route('topics.presentations.links.create', [$topic, $presentation]) }}">Add a link</a>
                 <ol>
-                    @foreach ($feedback as $next)
+                    @foreach ($links as $link)
                         <li>
-                            <a href="{{ route('topics.presentations.feedback.edit', [$topic, $presentation, $next]) }}">{{ $next->link }}</a> •
-                            <form id="delete-{{ $next->id }}" action="{{ route('topics.presentations.feedback.destroy', [$topic, $presentation, $next])}}" method="POST" style="display: inline">
+                            <a href="{{ route('topics.presentations.links.edit', [$topic, $presentation, $link]) }}">{{ $link->link }}</a> •
+                            <form id="delete-{{ $link->id }}" action="{{ route('topics.presentations.links.destroy', [$topic, $presentation, $link])}}" method="POST" style="display: inline">
                                 @method('DELETE')
                                 @csrf
-                                <a href="#" onclick="event.preventDefault(); confirm('Are you sure?') && document.getElementById('delete-{{ $next->id }}').submit(); ">delete</a>
+                                <a href="#" onclick="event.preventDefault(); confirm('Are you sure?') && document.getElementById('delete-{{ $link->id }}').submit(); ">delete</a>
                             </form>
                         </li>
                     @endforeach

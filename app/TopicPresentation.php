@@ -22,8 +22,8 @@ class TopicPresentation extends Model
         return $this->belongsTo(Topic::class);
     }
 
-    public function feedback()
+    public function links()
     {
-        return $this->hasMany(TopicPresentationFeedback::class);
+        return $this->hasMany(TopicPresentationLink::class);
     }
 }

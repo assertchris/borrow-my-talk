@@ -45,9 +45,8 @@ class UsersController extends Controller
         return redirect('/home');
     }
     
-    public function profile()
+    public function profile(User $user)
     {
-        $user = auth()->user();
         $topics = $user->topics()->orderBy('name', 'asc')->get();
 
         return view('users.profile', [
