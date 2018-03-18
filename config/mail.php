@@ -120,4 +120,6 @@ return [
         ],
     ],
 
+    'report-topic-to' => env('MAIL_TOPIC_REPORT_ADDRESS', 'cgpitt@gmail.com')
+
 ];

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Mail;
+namespace App\Mails;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class TopicReport extends Mailable
+class ReportTopicMail extends Mailable
 {
     use Queueable;
     use SerializesModels;
@@ -25,10 +25,13 @@ class TopicReport extends Mailable
 
     public function build()
     {
-        return $this->view('mails.topics.report', [
-            'topic' => $this->topic,
-            'reasons' => $this->reasons,
-            'links' => $this->links,
-        ]);
+        return $this
+            ->subject('Topic reported')
+            ->to(config('mail.report-topic-to'))
+            ->view('mails.topics.report', [
+                'topic' => $this->topic,
+                'reasons' => $this->reasons,
+                'links' => $this->links,
+            ]);
     }
 }
