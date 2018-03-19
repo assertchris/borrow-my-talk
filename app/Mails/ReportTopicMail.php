@@ -2,6 +2,7 @@
 
 namespace App\Mails;
 
+use App\Topic;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -16,7 +17,7 @@ class ReportTopicMail extends Mailable
     public $reasons;
     public $links;
 
-    public function __construct($topic, $reasons, $links)
+    public function __construct(Topic $topic, string $reasons, string $links = null)
     {
         $this->topic = $topic;
         $this->reasons = $reasons;
@@ -28,7 +29,7 @@ class ReportTopicMail extends Mailable
         return $this
             ->subject('Topic reported')
             ->to(config('mail.report-topic-to'))
-            ->view('mails.topics.report', [
+            ->markdown('mails.topics.report', [
                 'topic' => $this->topic,
                 'reasons' => $this->reasons,
                 'links' => $this->links,
