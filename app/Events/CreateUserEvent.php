@@ -4,7 +4,7 @@ namespace App\Events;
 
 use Atrox\Haikunator;
 
-class CreatingUser
+class CreateUserEvent
 {
     public function __construct($user)
     {

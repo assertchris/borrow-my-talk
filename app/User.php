@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Events\CreatingUser;
+use App\Events\CreateUserEvent;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -32,7 +32,7 @@ class User extends Authenticatable
     ];
 
     protected $dispatchesEvents = [
-        'creating' => CreatingUser::class,
+        'creating' => CreateUserEvent::class,
     ];
 
     public function topics()

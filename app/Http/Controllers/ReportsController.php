@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\TopicReport;
+use App\Events\ReportTopicEvent;
 use App\Topic;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class ReportsController extends Controller
 {
@@ -19,13 +18,13 @@ class ReportsController extends Controller
     public function send(Request $request, Topic $topic)
     {
         $this->validate($request, [
-            "reasons" => "required",
+            'reasons' => 'required',
         ]);
 
-        Mail::to(env("MAIL_TOPIC_REPORT_ADDRESS"))->send(new TopicReport(
+        event(new ReportTopicEvent(
             $topic,
-            $request->input("reasons"),
-            $request->input("links")
+            $request->input('reasons'),
+            $request->input('links')
         ));
 
         return redirect('/');
