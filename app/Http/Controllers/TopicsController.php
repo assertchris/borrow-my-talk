@@ -62,8 +62,6 @@ class TopicsController extends Controller
             'additional' => $request->input('additional'),
             'slides' => $request->input('slides'),
             'video' => $request->input('video'),
-            'includes_mentoring' => $request->input('includes-mentoring') ? true : false,
-            'willing_to_present' => $request->input('willing-to-present') ? true : false,
             'includes_mentoring' => $request->has('includes-mentoring'),
             'willing_to_present' => $request->has('willing-to-present'),
             'user_id' => auth()->user()->id,
