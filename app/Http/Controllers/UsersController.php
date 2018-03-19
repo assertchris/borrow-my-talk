@@ -38,7 +38,7 @@ class UsersController extends Controller
         $user->name = $request->input('name');
         $user->handle = $request->input('handle');
         $user->email = $request->input('email');
-        $user->from_under_represented_group = $request->input('from-under-represented-group') ? true : false;
+        $user->from_under_represented_group = $request->has('from-under-represented-group');
         $user->from_under_represented_group_additional = $request->input('from-under-represented-group-additional');
         $user->save();
 

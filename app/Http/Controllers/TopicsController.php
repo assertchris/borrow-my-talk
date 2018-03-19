@@ -93,8 +93,8 @@ class TopicsController extends Controller
         $topic->additional = $request->input('additional');
         $topic->slides = $request->input('slides');
         $topic->video = $request->input('video');
-        $topic->includes_mentoring = $request->input('includes-mentoring') ? true : false;
-        $topic->willing_to_present = $request->input('willing-to-present') ? true : false;
+        $topic->includes_mentoring = $request->has('includes-mentoring');
+        $topic->willing_to_present = $request->has('willing-to-present');
         $topic->save();
 
         return redirect()->route('topics.index');

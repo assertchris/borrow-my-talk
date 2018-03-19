@@ -40,8 +40,8 @@ class TopicPresentationsController extends Controller
             'year' => $request->input('year'),
             'month' => $request->input('month'),
             'additional' => $request->input('additional'),
-            'was_enjoyed' => $request->input('was-enjoyed') ? true : false,
-            'was_first_time_presenting_topic' => $request->input('was-first-time-presenting-topic') ? true : false,
+            'was_enjoyed' => $request->has('was-enjoyed'),
+            'was_first_time_presenting_topic' => $request->has('was-first-time-presenting-topic'),
             'topic_id' => $topic->id,
         ]);
 
@@ -63,8 +63,8 @@ class TopicPresentationsController extends Controller
         $presentation->year = $request->input('year');
         $presentation->month = $request->input('month');
         $presentation->additional = $request->input('additional');
-        $presentation->was_enjoyed = $request->input('was-enjoyed') ? true : false;
-        $presentation->was_first_time_presenting_topic = $request->input('was-first-time-presenting-topic') ? true : false;
+        $presentation->was_enjoyed = $request->has('was-enjoyed');
+        $presentation->was_first_time_presenting_topic = $request->has('was-first-time-presenting-topic');
         $presentation->save();
 
         return redirect()->route('topics.presentations.index', [$topic]);
