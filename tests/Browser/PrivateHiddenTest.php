@@ -8,7 +8,7 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class HiddenTest extends DuskTestCase
+class PrivateHiddenTest extends DuskTestCase
 {
     public function test_can_see_hidden_post_belonging_to_me()
     {
