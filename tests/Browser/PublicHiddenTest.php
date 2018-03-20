@@ -8,7 +8,7 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class HiddenTest extends DuskTestCase
+class PublicHiddenTest extends DuskTestCase
 {
     public function test_cannot_see_hidden_post_not_belonging_to_me()
     {
@@ -38,13 +38,13 @@ class HiddenTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser
                 ->visit(route('topics.search'))
-                ->assertNotSee($this->getTopic()->name)
+                ->assertDontSee($this->getTopic()->name)
                 ->visit(route('topics.search') . '?page=1')
-                ->assertNotSee($this->getTopic()->name)
+                ->assertDontSee($this->getTopic()->name)
                 ->visit(route('topics.search') . '?page=2')
-                ->assertNotSee($this->getTopic()->name)
+                ->assertDontSee($this->getTopic()->name)
                 ->visit(route('topics.search') . '?page=3')
-                ->assertNotSee($this->getTopic()->name);
+                ->assertDontSee($this->getTopic()->name);
         });
     }
 }
