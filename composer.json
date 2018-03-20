@@ -13,6 +13,7 @@
         "league/commonmark": "^0.17.0"
     },
     "require-dev": {
+        "codedungeon/phpunit-result-printer": "^0.6.1",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "laravel/dusk": "^3.0",
