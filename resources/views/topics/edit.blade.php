@@ -34,16 +34,6 @@
                         <small id="additional-help" class="form-text text-muted">Details to motivate the selection of this topic, such as your qualifications</small>
                     </div>
                     <div class="form-group">
-                        <label for="slides">Slides (link)</label>
-                        <input type="text" class="form-control" id="slides" name="slides" aria-describedby="slides-help" placeholder="Enter a link to your slides" value="{{ old('slides', $topic->slides) }}">
-                        <small id="slides-help" class="form-text text-muted">A link to the slides from a previous presentation of this topic</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="video">Video (link)</label>
-                        <input type="text" class="form-control" id="video" name="video" aria-describedby="video-help" placeholder="Enter a link to your video" value="{{ old('video', $topic->video) }}">
-                        <small id="video-help" class="form-text text-muted">A link to a video recording of a previous presentation of this topic</small>
-                    </div>
-                    <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="includes-mentoring" name="includes-mentoring" value="1"
                                 @if (old('includes-mentoring', $topic->includes_mentoring))

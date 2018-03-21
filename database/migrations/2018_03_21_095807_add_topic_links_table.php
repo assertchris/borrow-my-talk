@@ -4,20 +4,21 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTopicPresentationLinksTable extends Migration
+class AddTopicLinksTable extends Migration
 {
     public function up()
     {
-        Schema::create('topic_presentation_links', function (Blueprint $table) {
+        Schema::create('topic_links', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('type');
             $table->string('link');
-            $table->integer('topic_presentation_id');
+            $table->integer('topic_id');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('topic_presentation_links');
+        Schema::dropIfExists('topic_links');
     }
 }
