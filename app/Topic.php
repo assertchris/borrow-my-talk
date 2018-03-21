@@ -39,6 +39,11 @@ class Topic extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function links()
+    {
+        return $this->hasMany(TopicLink::class);
+    }
+
     public function presentations()
     {
         return $this->hasMany(TopicPresentation::class);

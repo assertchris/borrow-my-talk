@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('topics', 'TopicsController')->except("show")->middleware('auth');
+Route::resource('topics.links', 'TopicLinksController')->middleware('auth');
 Route::resource('topics.presentations', 'TopicPresentationsController')->middleware('auth');
 Route::resource('topics.presentations.links', 'TopicPresentationLinksController')->middleware('auth');
 

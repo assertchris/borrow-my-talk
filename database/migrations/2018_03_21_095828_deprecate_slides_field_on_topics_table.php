@@ -4,19 +4,19 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddHiddenAtToTopicsTable extends Migration
+class DeprecateSlidesFieldOnTopicsTable extends Migration
 {
     public function up()
     {
         Schema::table('topics', function (Blueprint $table) {
-            $table->dateTime('hidden_at')->nullable();
+            $table->renameColumn('slides', 'slides_deprecated');
         });
     }
 
     public function down()
     {
         Schema::table('topics', function (Blueprint $table) {
-            $table->dropColumn('hidden_at');
+            $table->renameColumn('slides_deprecated', 'slides');
         });
     }
 }

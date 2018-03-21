@@ -58,6 +58,15 @@ class TopicPresentationsController extends Controller
 
     public function update(Request $request, Topic $topic, TopicPresentation $presentation)
     {
+        $this->validate($request, [
+            'medium' => 'required',
+            'name' => 'required',
+            'year' => 'required|numeric',
+            'month' => 'nullable|numeric',
+            'was-enjoyed' => 'nullable|boolean',
+            'was-first-time-presenting-topic' => 'nullable|boolean',
+        ]);
+
         $presentation->medium = $request->input('medium');
         $presentation->name = $request->input('name');
         $presentation->year = $request->input('year');
