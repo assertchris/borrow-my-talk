@@ -10,6 +10,7 @@
                     <h1>Add a link</h1>
                     
                     @include('includes.errors')
+                    @include('includes.link-type', ['type' => old('type')])
 
                     <div class="form-group">
                         <label for="link">Link</label>

@@ -11,6 +11,7 @@
                     <h1>Update a link</h1>
                     
                     @include('includes.errors')
+                    @include('includes.link-type', ['type' => old('type', $link->type)])
 
                     <div class="form-group">
                         <label for="link">Link</label>

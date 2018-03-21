@@ -29,10 +29,19 @@ class TopicPresentationLinksController extends Controller
     public function store(Request $request, Topic $topic, TopicPresentation $presentation)
     {
         $this->validate($request, [
-            'link' => 'required|url'
+            'type' => 'required',
+            'type-other' => 'required_if:type,other',
+            'link' => 'required|url',
         ]);
 
+        $type = $request->input('type');
+
+        if ($type === 'other') {
+            $type = $request->input('type-other');
+        }
+
         TopicPresentationLink::create([
+            'type' => $type,
             'link' => $request->input('link'),
             'topic_presentation_id' => $presentation->id,
         ]);
@@ -52,9 +61,18 @@ class TopicPresentationLinksController extends Controller
     public function update(Request $request, Topic $topic, TopicPresentation $presentation, TopicPresentationLink $link)
     {
         $this->validate($request, [
-            'link' => 'required|url'
+            'type' => 'required',
+            'type-other' => 'required_if:type,other',
+            'link' => 'required|url',
         ]);
 
+        $type = $request->input('type');
+
+        if ($type === 'other') {
+            $type = $request->input('type-other');
+        }
+
+        $link->type = $type;
         $link->link = $request->input('link');
         $link->save();
 
