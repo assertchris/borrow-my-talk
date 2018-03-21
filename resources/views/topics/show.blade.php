@@ -21,6 +21,17 @@
                         @markdown($topic->additional)
                     </p>
                 @endif
+                @if ($topic->links->count())
+                    @foreach ($topic->links as $link)
+                        <p>
+                            {{ $link->type }}: <a href="{{ $link->link }}">{{ $link->link }}</a>
+                        </p>
+                    @endforeach
+                @else
+                    <p>
+                        There are no links for this topic.
+                    </p>
+                @endif
                 <h3>Presentations</h3>
                 @if ($topic->presentations->count())
                     <ol>
@@ -35,6 +46,11 @@
                                             {{ $presentation->year }}
                                         @endif
                                     )
+                                    @if ($presentation->was_enjoyed)
+                                        ☺
+                                    @else
+                                        ☹
+                                    @endif
                                 </h4>
                                 @if ($presentation->additional)
                                     <h5>Additional</h5>
@@ -43,20 +59,16 @@
                                     </p>
                                 @endif
                                 <p>
-                                    @if ($presentation->was_enjoyed)
-                                        {{ $topic->user->name }} enjoyed presenting this.
-                                    @endif
                                     @if ($presentation->was_first_time_presenting_topic)
                                         It was the first time {{ $topic->user->name }} presented this topic.
                                     @endif
                                 </p>
-                                <h5>Links</h5>
                                 @if ($presentation->links->count())
-                                    <ol>
-                                        @foreach ($presentation->links as $link)
-                                            <li><a href="{{ $link->link }}">{{ $link->link }}</a></li>
-                                        @endforeach
-                                    </ol>
+                                    @foreach ($presentation->links as $link)
+                                        <p>
+                                            <a href="{{ $link->link }}">{{ $link->link }}</a>
+                                        </p>
+                                    @endforeach
                                 @else
                                     <p>
                                         There are no links for this presentation.
