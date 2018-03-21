@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TopicPresentationLink extends Model
 {
     protected $fillable = [
+        'type',
         'link',
         'topic_presentation_id',
     ];

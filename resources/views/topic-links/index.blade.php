@@ -9,8 +9,9 @@
                 <ol>
                     @foreach ($links as $link)
                         <li>
+                            {{ $link->type }}:
                             <a href="{{ route('topics.links.edit', [$topic, $link]) }}">
-                                {{ $link->type }}: {{ $link->link }}
+                                {{ $link->link }}
                             </a> •
                             <form id="delete-{{ $link->id }}" action="{{ route('topics.links.destroy', [$topic, $link])}}" method="POST" style="display: inline">
                                 @method('DELETE')
