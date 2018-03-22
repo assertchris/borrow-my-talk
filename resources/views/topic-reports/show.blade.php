@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form method="post" action="{{ route('topics.reports.show', [$topic]) }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('topics.reports.send', [$topic]) }}" enctype="multipart/form-data">
                     @csrf
 
                     <h1>Report {{ $topic->name }}</h1>

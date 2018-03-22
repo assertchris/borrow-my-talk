@@ -23,6 +23,10 @@ class User extends Authenticatable
         'twitter_auth_at',
     ];
 
+    protected $casts = [
+        'from_under_represented_group' => 'boolean',
+    ];
+
     protected $hidden = [
         'password',
         'remember_token',
