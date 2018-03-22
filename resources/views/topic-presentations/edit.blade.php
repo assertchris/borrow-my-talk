@@ -11,12 +11,8 @@
                     <h1>Update a presentation</h1>
                     
                     @include('includes.errors')
+                    @include('includes.presentation-medium', ['medium' => old('medium', $presentation->medium)])
 
-                    <div class="form-group">
-                        <label for="medium">Medium</label>
-                        <input type="text" class="form-control" id="medium" name="medium" aria-describedby="medium-help" placeholder="Enter a medium" value="{{ old('medium', $presentation->medium) }}">
-                        <small id="medium-help" class="form-text text-muted">What was this presentation? Examples: "conference", "meet-up", "magazine", "book"</small>
-                    </div>
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" name="name" aria-describedby="name-help" placeholder="Enter a name" value="{{ old('name', $presentation->name) }}">
