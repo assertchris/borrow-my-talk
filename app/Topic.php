@@ -14,14 +14,14 @@ class Topic extends Model
         'name',
         'abstract',
         'additional',
-        'slides',
-        'video',
         'includes_mentoring',
         'willing_to_present',
         'user_id',
     ];
 
     protected $casts = [
+        'includes_mentoring' => 'boolean',
+        'willing_to_present' => 'boolean',
         'user_id' => 'integer',
     ];
 

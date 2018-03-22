@@ -6,7 +6,7 @@ use App\Events\ReportTopicEvent;
 use App\Topic;
 use Illuminate\Http\Request;
 
-class ReportsController extends Controller
+class TopicReportsController extends Controller
 {
     public function show(Topic $topic)
     {

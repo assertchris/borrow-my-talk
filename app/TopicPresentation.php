@@ -17,6 +17,14 @@ class TopicPresentation extends Model
         'topic_id',
     ];
 
+    protected $casts = [
+        'year' => 'integer',
+        'month' => 'integer',
+        'was_enjoyed' => 'boolean',
+        'was_first_time_presenting_topic' => 'boolean',
+        'topic_id' => 'integer',
+    ];
+
     public function topic()
     {
         return $this->belongsTo(Topic::class);

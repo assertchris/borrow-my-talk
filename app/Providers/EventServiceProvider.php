@@ -10,5 +10,8 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\ReportTopicEvent' => [
             'App\Listeners\ReportTopicListener',
         ],
+        'App\Events\RequestTopicEvent' => [
+            'App\Listeners\RequestTopicListener',
+        ],
     ];
 }
