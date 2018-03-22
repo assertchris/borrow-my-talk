@@ -67,7 +67,7 @@
                                 @if ($presentation->links->count())
                                     @foreach ($presentation->links as $link)
                                         <p>
-                                            <a href="{{ $link->link }}">{{ $link->link }}</a>
+                                            {{ $link->type }}: <a href="{{ $link->link }}">{{ $link->link }}</a>
                                         </p>
                                     @endforeach
                                 @else
