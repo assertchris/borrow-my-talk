@@ -11,6 +11,7 @@
                     </a>
                 </h2>
                 (<a href="{{ route('topics.reports.show', [$topic]) }}">report topic</a>)
+                (<a href="{{ route('topics.requests.show', [$topic]) }}">request topic</a>)
                 <h3>Abstract</h3>
                 <p>
                     @markdown($topic->abstract)

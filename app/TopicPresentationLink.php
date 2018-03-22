@@ -12,6 +12,10 @@ class TopicPresentationLink extends Model
         'topic_presentation_id',
     ];
 
+    protected $casts = [
+        'topic_presentation_id' => 'integer',
+    ];
+
     public function presentations()
     {
         return $this->belongsTo(TopicPresentation::class);

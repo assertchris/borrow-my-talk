@@ -25,8 +25,12 @@ Route::resource('topics.presentations.links', 'TopicPresentationLinksController'
 Route::get('/settings', 'UsersController@settings')->middleware('auth')->name('users.settings');
 Route::patch('/settings', 'UsersController@update')->middleware('auth')->name('users.update');
 
-Route::get('/topics/{topic}/report', 'ReportsController@show')->name('topics.reports.show');
-Route::post('/topics/{topic}/report', 'ReportsController@send')->name('topics.reports.send');
+Route::get('/topics/{topic}/report', 'TopicReportsController@show')->name('topics.reports.show');
+Route::post('/topics/{topic}/report', 'TopicReportsController@send')->name('topics.reports.send');
+Route::get('/topics/{topic}/request', 'TopicRequestsController@show')->name('topics.requests.show');
+Route::post('/topics/{topic}/request', 'TopicRequestsController@send')->name('topics.requests.send');
+Route::get('/topics/{topic}/request/accept', 'TopicRequestsController@accept')->name('topics.requests.accept');
+Route::post('/topics/{topic}/request/decline', 'TopicRequestsController@decline')->name('topics.requests.decline');
 
 Route::get('/search', 'TopicsController@search')->name('topics.search');
 Route::get('/topics/{topic}', 'TopicsController@show')->name('topics.show');

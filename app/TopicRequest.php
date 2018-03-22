@@ -4,15 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TopicReport extends Model
+class TopicRequest extends Model
 {
     protected $fillable = [
-        'reasons',
-        'links',
+        'name',
+        'email',
+        'type',
+        'when',
+        'additional',
+        'wants_mentoring',
         'topic_id',
     ];
 
     protected $casts = [
+        'wants_mentoring' => 'boolean',
         'topic_id' => 'integer',
     ];
 
