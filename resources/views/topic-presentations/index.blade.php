@@ -9,6 +9,7 @@
                 <ol>
                     @foreach ($presentations as $presentation)
                         <li>
+                            {{ $presentation->medium }}: 
                             <a href="{{ route('topics.presentations.edit', [$topic, $presentation]) }}">
                                 {{ $presentation->name }}
                                 @if ($presentation->month)
