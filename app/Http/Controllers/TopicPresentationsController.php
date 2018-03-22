@@ -27,6 +27,7 @@ class TopicPresentationsController extends Controller
     {
         $this->validate($request, [
             'medium' => 'required',
+            'medium-other' => 'required_if:medium,other',
             'name' => 'required',
             'year' => 'required|numeric',
             'month' => 'nullable|numeric',
@@ -34,8 +35,14 @@ class TopicPresentationsController extends Controller
             'was-first-time-presenting-topic' => 'nullable|boolean',
         ]);
 
+        $medium = $request->input('medium');
+
+        if ($medium === 'other') {
+            $medium = $request->input('medium-other');
+        }
+
         TopicPresentation::create([
-            'medium' => $request->input('medium'),
+            'medium' => $medium,
             'name' => $request->input('name'),
             'year' => $request->input('year'),
             'month' => $request->input('month'),
@@ -60,6 +67,7 @@ class TopicPresentationsController extends Controller
     {
         $this->validate($request, [
             'medium' => 'required',
+            'medium-other' => 'required_if:medium,other',
             'name' => 'required',
             'year' => 'required|numeric',
             'month' => 'nullable|numeric',
@@ -67,7 +75,13 @@ class TopicPresentationsController extends Controller
             'was-first-time-presenting-topic' => 'nullable|boolean',
         ]);
 
-        $presentation->medium = $request->input('medium');
+        $medium = $request->input('medium');
+
+        if ($medium === 'other') {
+            $medium = $request->input('medium-other');
+        }
+
+        $presentation->medium = $medium;
         $presentation->name = $request->input('name');
         $presentation->year = $request->input('year');
         $presentation->month = $request->input('month');
