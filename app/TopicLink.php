@@ -12,6 +12,10 @@ class TopicLink extends Model
         'topic_id',
     ];
 
+    protected $casts = [
+        'topic_id' => 'integer',
+    ];
+
     public function topics()
     {
         return $this->belongsTo(Topic::class);

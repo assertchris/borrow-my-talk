@@ -50,8 +50,6 @@ class TopicsController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'abstract' => 'required',
-            'slides' => 'nullable|url',
-            'video' => 'nullable|url',
             'includes-mentoring' => 'nullable|boolean',
             'willing-to-present' => 'nullable|boolean',
         ]);
@@ -60,8 +58,6 @@ class TopicsController extends Controller
             'name' => $request->input('name'),
             'abstract' => $request->input('abstract'),
             'additional' => $request->input('additional'),
-            'slides' => $request->input('slides'),
-            'video' => $request->input('video'),
             'includes_mentoring' => $request->has('includes-mentoring'),
             'willing_to_present' => $request->has('willing-to-present'),
             'user_id' => auth()->user()->id,
@@ -82,8 +78,6 @@ class TopicsController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'abstract' => 'required',
-            'slides' => 'nullable|url',
-            'video' => 'nullable|url',
             'includes-mentoring' => 'nullable|boolean',
             'willing-to-present' => 'nullable|boolean',
         ]);
@@ -91,8 +85,6 @@ class TopicsController extends Controller
         $topic->name = $request->input('name');
         $topic->abstract = $request->input('abstract');
         $topic->additional = $request->input('additional');
-        $topic->slides = $request->input('slides');
-        $topic->video = $request->input('video');
         $topic->includes_mentoring = $request->has('includes-mentoring');
         $topic->willing_to_present = $request->has('willing-to-present');
         $topic->save();
