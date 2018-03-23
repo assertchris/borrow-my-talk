@@ -2,7 +2,6 @@
 
 namespace Tests\Browser;
 
-use Illuminate\Support\Facades\Mail;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
@@ -41,8 +40,6 @@ class PasswordResetTest extends DuskTestCase
     public function test_it_can_reset_a_password()
     {
         $this->browse(function (Browser $browser) {
-            Mail::fake();
-
             $browser
                 ->visit(route('password.request'))
                 ->type('@email', 'cgpitt@gmail.com')
