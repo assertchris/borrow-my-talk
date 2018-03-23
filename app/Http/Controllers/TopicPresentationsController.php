@@ -25,7 +25,7 @@ class TopicPresentationsController extends Controller
 
     public function store(Request $request, Topic $topic)
     {
-        $this->validate($request, [
+        $request->validate([
             'medium' => 'required',
             'medium-other' => 'required_if:medium,other',
             'name' => 'required',
@@ -65,7 +65,7 @@ class TopicPresentationsController extends Controller
 
     public function update(Request $request, Topic $topic, TopicPresentation $presentation)
     {
-        $this->validate($request, [
+        $request->validate([
             'medium' => 'required',
             'medium-other' => 'required_if:medium,other',
             'name' => 'required',

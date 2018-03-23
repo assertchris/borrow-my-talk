@@ -47,7 +47,7 @@ class TopicsController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'name' => 'required',
             'abstract' => 'required',
             'includes-mentoring' => 'nullable|boolean',
@@ -75,7 +75,7 @@ class TopicsController extends Controller
 
     public function update(Request $request, Topic $topic)
     {
-        $this->validate($request, [
+        $request->validate([
             'name' => 'required',
             'abstract' => 'required',
             'includes-mentoring' => 'nullable|boolean',

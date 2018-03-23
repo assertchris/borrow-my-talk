@@ -25,7 +25,7 @@ class TopicLinksController extends Controller
 
     public function store(Request $request, Topic $topic)
     {
-        $this->validate($request, [
+        $request->validate([
             'type' => 'required',
             'type-other' => 'required_if:type,other',
             'link' => 'required|url',
@@ -56,7 +56,7 @@ class TopicLinksController extends Controller
 
     public function update(Request $request, Topic $topic, TopicLink $link)
     {
-        $this->validate($request, [
+        $request->validate([
             'type' => 'required',
             'type-other' => 'required_if:type,other',
             'link' => 'required|url',

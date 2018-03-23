@@ -17,7 +17,7 @@ class TopicRequestsController extends Controller
 
     public function send(Request $request, Topic $topic)
     {
-        $this->validate($request, [
+        $request->validate([
             'name' => 'required',
             'email' => 'required',
             'type' => 'required',

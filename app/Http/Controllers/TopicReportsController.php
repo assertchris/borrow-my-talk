@@ -17,7 +17,7 @@ class TopicReportsController extends Controller
 
     public function send(Request $request, Topic $topic)
     {
-        $this->validate($request, [
+        $request->validate([
             'reasons' => 'required',
         ]);
 
