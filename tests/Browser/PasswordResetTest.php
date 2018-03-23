@@ -44,7 +44,6 @@ class PasswordResetTest extends DuskTestCase
                 ->visit(route('password.request'))
                 ->type('@email', 'cgpitt@gmail.com')
                 ->click('@send-password-reset')
-                ->pause(500)
                 ->assertSee('We have e-mailed your password reset link!');
         });
     }
