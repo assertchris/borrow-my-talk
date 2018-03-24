@@ -7,7 +7,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Neuton:700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Neuton:400,700" rel="stylesheet">
         @if (app()->environment('production'))
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115774748-1"></script>
             <script>
@@ -21,6 +21,7 @@
     <body class="h-screen">
         @include('includes.nav')
         @yield('content')
+        @include('includes.footer')
         <script src="{{ asset('js/app.js') }}"></script>
         @stack('scripts')
     </body>

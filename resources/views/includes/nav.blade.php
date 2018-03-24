@@ -1,5 +1,5 @@
 @if (Route::is('landing'))
-    <div class="
+    <nav class="
         flex justify-end
         xs:p-2
         sm:p-4
@@ -15,7 +15,7 @@
             xs:ml-2 xs:text-sm
             sm:ml-4 sm:text-base
         " href="{{ route('register') }}">Register</a>
-    </div>
+    </nav>
 @else
     <nav class="bg-white h-12 shadow mb-8 px-6 md:px-0">
         <div class="container mx-auto h-full">

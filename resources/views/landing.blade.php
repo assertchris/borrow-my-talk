@@ -16,6 +16,7 @@
             block text-grey-darkest
             xs:text-sm xs:mb-4
             sm:text-base sm:mb-6
+            md:text-center
         " for="query">
             Find a topic for your next meet-up
         </label>
@@ -24,5 +25,16 @@
 @endsection
 
 @section('landing.bottom')
-    bottom
+    @if ($newest->count() > 0)
+        @include('includes.topic-card-heading', ['label' => 'Newest topics'])
+        @include('includes.topic-card-list', ['topics' => $newest])
+    @endif
+    @if ($popular->count() > 0)
+        @include('includes.topic-card-heading', ['label' => 'Popular topics'])
+        @include('includes.topic-card-list', ['topics' => $popular])
+    @endif
+    @if ($requested->count() > 0)
+        @include('includes.topic-card-heading', ['label' => 'Requested topics'])
+        @include('includes.topic-card-list', ['topics' => $requested])
+    @endif
 @endsection
