@@ -23,6 +23,7 @@ class Topic extends Model
         'includes_mentoring' => 'boolean',
         'willing_to_present' => 'boolean',
         'user_id' => 'integer',
+        'page_views' => 'integer',
     ];
 
     protected static function boot()
