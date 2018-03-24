@@ -1,94 +1,71 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-        @if (app()->environment('production'))
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115774748-1"></script>
-            <script>
+    @if (app()->environment('production'))
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115774748-1"></script>
+
+        <script>
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            function gtag() { dataLayer.push(arguments) }
             gtag('js', new Date());
-
             gtag('config', 'UA-115774748-1');
-            </script>
-        @endif
-    </head>
-    <body>
-        <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-                <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+        </script>
+    @endif
+</head>
+<body class="bg-brand-lightest h-screen">
+    <div id="app">
+        <nav class="bg-white h-12 shadow mb-8 px-6 md:px-0">
+            <div class="container mx-auto h-full">
+                <div class="flex items-center justify-center h-12">
+                    <div class="mr-6">
+                        <a href="{{ url('/') }}" class="no-underline">
+                            {{ config('app.name', 'Laravel') }}
+                        </a>
+                    </div>
+                    <div class="flex-1 text-left">
+                        <a class="no-underline hover:underline text-grey-darker pr-3 text-sm" href="{{ route('topics.create') }}">{{ __('Submit a topic') }}</a>
+                        @auth
+                            <a class="no-underline hover:underline text-grey-darker pr-3 text-sm" href="{{ route('topics.index') }}">{{ __('Topics') }}</a>
+                            <a class="no-underline hover:underline text-grey-darker pr-3 text-sm" href="{{ route('users.settings') }}">{{ __('Settings') }}</a>
+                            <a class="no-underline hover:underline text-grey-darker pr-3 text-sm" href="{{ route('users.profile', [auth()->user()->handle]) }}">{{ __('Profile') }}</a>
+                        @endauth
+                    </div>
+                    <div class="flex-1 text-right">
+                        @guest
+                            <a class="no-underline hover:underline text-grey-darker pr-3 text-sm" href="{{ url('/login') }}">Login</a>
+                            <a class="no-underline hover:underline text-grey-darker text-sm" href="{{ url('/register') }}">Register</a>
+                        @else
+                            <span class="text-grey-darker text-sm pr-4">{{ Auth::user()->name }}</span>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-                            <li><a class="nav-link" href="{{ route('topics.create') }}">{{ __('Submit a topic') }}</a></li>
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
-                            @guest
-                                <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                                <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>
-
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('topics.index') }}">
-                                            {{ __('My topics') }}
-                                        </a>
-
-                                        <a class="dropdown-item" href="{{ route('users.settings') }}">
-                                            {{ __('My settings') }}
-                                        </a>
-
-                                        <a class="dropdown-item" href="{{ route('users.profile', [auth()->user()->handle]) }}">
-                                            {{ __('My profile') }}
-                                        </a>
-
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
+                            <a href="{{ route('logout') }}"
+                                class="no-underline hover:underline text-grey-darker text-sm"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        @endguest
                     </div>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
-            <main class="py-4">
-                @yield('content')
-            </main>
-        </div>
+        @yield('content')
+    </div>
 
-        <script src="{{ asset('js/app.js') }}"></script>
-        @stack('scripts')
-    </body>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+</body>
 </html>

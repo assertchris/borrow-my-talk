@@ -22,7 +22,7 @@ class RegisterTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser
                 ->visit(route('register'))
-                ->click('@register')
+                ->click('@submit')
                 ->assertSee('name field is required')
                 ->assertSee('email field is required')
                 ->assertSee('password field is required');
@@ -39,7 +39,7 @@ class RegisterTest extends DuskTestCase
             $browser
                 ->visit(route('register'))
                 ->type('@email', 'cgpitt@gmail.com')
-                ->click('@register')
+                ->click('@submit')
                 ->assertSee('email has already been taken');
         });
     }
@@ -51,7 +51,7 @@ class RegisterTest extends DuskTestCase
                 ->visit(route('register'))
                 ->type('@password', 'password')
                 ->type('@confirm-password', 'password123')
-                ->click('@register')
+                ->click('@submit')
                 ->assertSee('password confirmation does not match');
         });
     }
@@ -65,7 +65,7 @@ class RegisterTest extends DuskTestCase
                 ->type('@email', 'new@email.com')
                 ->type('@password', 'password')
                 ->type('@confirm-password', 'password')
-                ->click('@register')
+                ->click('@submit')
                 ->assertPathIs('/home');
         });
     }

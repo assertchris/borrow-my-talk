@@ -21,7 +21,7 @@ class PasswordResetTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser
                 ->visit(route('password.request'))
-                ->click('@send-password-reset')
+                ->click('@submit')
                 ->assertSee('email field is required');
         });
     }
@@ -32,7 +32,7 @@ class PasswordResetTest extends DuskTestCase
             $browser
                 ->visit(route('password.request'))
                 ->type('@email', 'janedoe@example.com')
-                ->click('@send-password-reset')
+                ->click('@submit')
                 ->assertSee("can't find a user with that e-mail address");
         });
     }
@@ -43,7 +43,7 @@ class PasswordResetTest extends DuskTestCase
             $browser
                 ->visit(route('password.request'))
                 ->type('@email', 'cgpitt@gmail.com')
-                ->click('@send-password-reset')
+                ->click('@submit')
                 ->assertSee('We have e-mailed your password reset link!');
         });
     }
