@@ -1,15 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto">
+    <div class="
+        container
+        xs:px-4
+        sm:px-0 sm:mx-auto
+    ">
         @yield('landing.top')
     </div>
     <div class="bg-grey-lightest">
-        <div class="container mx-auto my-8 py-8">
+        <div class="
+            container
+            xs:my-4 xs:px-4 xs:py-4
+            sm:mx-auto sm:my-8 sm:py-8 sm:px-0
+        ">
             @yield('landing.search')
         </div>
     </div>
-    <div class="container mx-auto">
+    <div class="
+        container
+        xs:px-4
+        sm:px-0 sm:mx-auto
+    ">
         @yield('landing.bottom')
     </div>
 @endsection

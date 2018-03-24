@@ -1,7 +1,20 @@
 @if (Route::is('landing'))
-    <div class="flex justify-end p-6">
-        <a class="text-brand-light ml-4" href="{{ route('login') }}">Login</a>
-        <a class="text-brand-light ml-4" href="{{ route('register') }}">Register</a>
+    <div class="
+        flex justify-end
+        xs:p-2
+        sm:p-4
+        md:p-6
+    ">
+        <a class="
+            text-brand-light
+            xs:text-sm
+            sm:text-base
+        " href="{{ route('login') }}">Login</a>
+        <a class="
+            text-brand-light
+            xs:ml-2 xs:text-sm
+            sm:ml-4 sm:text-base
+        " href="{{ route('register') }}">Register</a>
     </div>
 @else
     <nav class="bg-white h-12 shadow mb-8 px-6 md:px-0">
