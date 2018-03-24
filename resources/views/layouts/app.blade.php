@@ -19,13 +19,8 @@
         @endif
     </head>
     <body class="h-screen">
-
         @include('includes.nav')
-
-        <div class="container mx-auto">
-            @yield('content')
-        </div>
-        
+        @yield('content')
         <script src="{{ asset('js/app.js') }}"></script>
         @stack('scripts')
     </body>

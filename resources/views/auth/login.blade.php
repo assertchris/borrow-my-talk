@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.page')
 
-@section('content')
+@section('page.content')
 <div class="flex items-center px-6 md:px-0">
     <div class="w-full max-w-md md:mx-auto">
         <div class="rounded shadow">
