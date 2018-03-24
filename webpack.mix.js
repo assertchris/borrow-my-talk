@@ -22,7 +22,7 @@ if (mix.inProduction()) {
     mix.version()
 }
 
-mix.sass("resources/assets/css/app.scss", "public/css").options({
-    processCssUrls: false,
-    postCss: [tailwindcss("tailwind.js")],
-})
+// mix.sass("resources/assets/css/app.scss", "public/css").options({
+//     processCssUrls: false,
+//     postCss: [tailwindcss("tailwind.js")],
+// })
