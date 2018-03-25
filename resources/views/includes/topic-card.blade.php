@@ -23,11 +23,7 @@
         flex
         justify-between
     ">
-        <a href="{{ route('topics.requests.show', $topic) }}" class="
-            flex text-brand-light
-        ">See more</a>
-        <a href="{{ route('topics.requests.show', $topic) }}" class="
-            flex text-brand-light
-        ">Request</a>
+        @link(route('topics.show', $topic), 'See more', ['flex'])
+        @link(route('topics.requests.show', $topic), 'Request this topic', ['flex'])
     </div>
 </div>

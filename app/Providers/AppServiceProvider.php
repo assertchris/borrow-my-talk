@@ -14,23 +14,25 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Blade::directive('link', function ($expression) {
-            $args = eval("return [{$expression}];");
+            return "<?php
+                \$params = [{$expression}];
 
-            if (count($args) < 2) {
-                throw new InvalidArgumentException('not enough args for a link');
-            }
+                if (count(\$params) < 2) {
+                    throw new Exception('not enough params for a link');
+                }
 
-            [$href, $label] = $args;
+                [\$href, \$label] = \$params;
 
-            $classes = ['text-brand-light'];
+                \$classes = ['text-brand-light'];
 
-            if (isset($args[2])) {
-                $classes = array_merge($classes, $args[2]);
-            }
+                if (isset(\$params[2])) {
+                    \$classes = array_merge(\$classes, \$params[2]);
+                }
 
-            $class = join(' ', $classes);
+                \$classes = join(' ', \$classes);
 
-            return "<a href='{$href}' class='{$class}'>{$label}</a>";
+                echo \"<a href='{\$href}' class='{\$classes}'>{\$label}</a>\";
+            ?>";
         });
     }
 
