@@ -6,9 +6,9 @@
         sm:p-8
     ">
         Made by
-        @include('includes.link', ['link' => 'https://twitter.com/codebyjeff', 'text' => 'Jeff Madsen']),
-        @include('includes.link', ['link' => 'https://twitter.com/m1guelpf', 'text' => 'Miguel Piedrafita']),
-        @include('includes.link', ['link' => 'https://twitter.com/wilburpowery', 'text' => 'Wilbur Powery']), and 
-        @include('includes.link', ['link' => 'https://twitter.com/assertchris', 'text' => 'Christopher Pitt']).
+        @link('https://twitter.com/codebyjeff', 'Jeff Madsen'),
+        @link('https://twitter.com/m1guelpf', 'Miguel Piedrafita'),
+        @link('https://twitter.com/wilburpowery', 'Wilbur Powery'), and
+        @link('https://twitter.com/assertchris', 'Christopher Pitt').
     </div>
 </footer>

@@ -5,7 +5,8 @@
         text-grey-darkest font-serif text-center
         xs:text-3xl xs:my-1
         sm:text-4xl
-        md:mt-8 md:mb-4 md:text-5xl">
+        md:mt-8 md:mb-4 md:text-5xl
+    ">
         Borrow My Topic
     </h1>
 @endsection
