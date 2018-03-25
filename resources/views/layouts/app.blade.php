@@ -19,10 +19,8 @@
         @endif
     </head>
     <body class="h-screen">
-        @include('includes.nav')
         @yield('content')
         @include('includes.footer')
-        <script src="{{ asset('js/app.js') }}"></script>
         @stack('scripts')
     </body>
 </html>

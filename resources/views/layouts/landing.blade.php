@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('includes.navigation.landing')
+
     <div class="
         container
         xs:px-4

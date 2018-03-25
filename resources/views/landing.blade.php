@@ -27,15 +27,15 @@
 
 @section('landing.bottom')
     @if ($newest->count() > 0)
-        @include('includes.topic-card-heading', ['label' => 'Newest topics'])
-        @include('includes.topic-card-list', ['topics' => $newest])
+        @include('includes.topics.landing-card-heading', ['label' => 'Newest topics'])
+        @include('includes.topics.landing-card-list', ['topics' => $newest])
     @endif
     @if ($popular->count() > 0)
-        @include('includes.topic-card-heading', ['label' => 'Popular topics'])
-        @include('includes.topic-card-list', ['topics' => $popular])
+        @include('includes.topics.landing-card-heading', ['label' => 'Popular topics'])
+        @include('includes.topics.landing-card-list', ['topics' => $popular])
     @endif
     @if ($requested->count() > 0)
-        @include('includes.topic-card-heading', ['label' => 'Requested topics'])
-        @include('includes.topic-card-list', ['topics' => $requested])
+        @include('includes.topics.landing-card-heading', ['label' => 'Requested topics'])
+        @include('includes.topics.landing-card-list', ['topics' => $requested])
     @endif
 @endsection

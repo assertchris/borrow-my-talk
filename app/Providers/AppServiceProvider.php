@@ -25,13 +25,23 @@ class AppServiceProvider extends ServiceProvider
 
                 \$classes = ['text-brand-light'];
 
-                if (isset(\$params[2])) {
-                    \$classes = array_merge(\$classes, \$params[2]);
+                if (isset(\$params[2]) && is_array(\$params[2])) {
+                    if (isset(\$params[2][0]) && \$params[2][0] !== false) {
+                        \$classes = array_merge(\$params[2], \$classes);
+                    } else {
+                        \$classes = \$params[2];
+                    }
                 }
 
                 \$classes = join(' ', \$classes);
 
-                echo \"<a href='{\$href}' class='{\$classes}'>{\$label}</a>\";
+                \$attrs = '';
+
+                if (isset(\$params[3])) {
+                    \$attrs = \$params[3];
+                }
+
+                echo \"<a href='{\$href}' class='{\$classes}' {\$attrs}>{\$label}</a>\";
             ?>";
         });
     }
