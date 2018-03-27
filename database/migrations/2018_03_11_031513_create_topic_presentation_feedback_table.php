@@ -14,7 +14,7 @@ class CreateTopicPresentationFeedbackTable extends Migration
             // could be a link to joind.in feedback page or tweet of presentation
             $table->string('link');
 
-            $table->integer('topic_presentation_id');
+            $table->unsignedInteger('topic_presentation_id')->index();
             $table->timestamps();
         });
     }

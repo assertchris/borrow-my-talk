@@ -12,7 +12,7 @@ class AddTopicLinksTable extends Migration
             $table->increments('id');
             $table->string('type');
             $table->string('link');
-            $table->integer('topic_id');
+            $table->unsignedInteger('topic_id')->index();
             $table->timestamps();
         });
     }

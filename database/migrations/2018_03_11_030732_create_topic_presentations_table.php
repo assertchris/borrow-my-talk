@@ -34,7 +34,7 @@ class CreateTopicPresentationsTable extends Migration
             // this affects feedback and nerves, might not be apparent from year/month alone
             $table->boolean('was_first_time_presenting_topic')->default(false);
 
-            $table->integer('topic_id');
+            $table->unsignedInteger('topic_id')->index();
             $table->timestamps();
         });
     }

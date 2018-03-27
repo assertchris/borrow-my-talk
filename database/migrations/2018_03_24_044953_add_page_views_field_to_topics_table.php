@@ -9,7 +9,7 @@ class AddPageViewsFieldToTopicsTable extends Migration
     public function up()
     {
         Schema::table('topics', function (Blueprint $table) {
-            $table->integer('page_views')->default(0);
+            $table->unsignedInteger('page_views')->default(0);
         });
     }
 

@@ -11,7 +11,7 @@ class CreateTopicPresentationLinksTable extends Migration
         Schema::create('topic_presentation_links', function (Blueprint $table) {
             $table->increments('id');
             $table->string('link');
-            $table->integer('topic_presentation_id');
+            $table->unsignedInteger('topic_presentation_id')->index();
             $table->timestamps();
         });
     }

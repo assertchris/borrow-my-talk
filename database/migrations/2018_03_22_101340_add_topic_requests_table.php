@@ -16,7 +16,7 @@ class AddTopicRequestsTable extends Migration
             $table->string('when')->nullable();
             $table->text('additional')->nullable();
             $table->boolean('wants_mentoring')->default(false);
-            $table->integer('topic_id');
+            $table->unsignedInteger('topic_id')->index();
             $table->timestamps();
         });
     }
