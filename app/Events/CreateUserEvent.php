@@ -8,6 +8,8 @@ class CreateUserEvent
 {
     public function __construct($user)
     {
-        $user->handle = Haikunator::haikunate(["delimiter" => "."]);
+        if (!$user->handle) {
+            $user->handle = Haikunator::haikunate(["delimiter" => "."]);
+        }
     }
 }

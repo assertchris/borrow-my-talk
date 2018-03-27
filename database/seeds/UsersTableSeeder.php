@@ -1,28 +1,24 @@
 <?php
 
-use Carbon\Carbon;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('users')->insert([
+        User::create([
             'name' => 'Christopher Pitt',
             'handle' => 'assertchris',
             'email' => 'cgpitt@gmail.com',
             'password' => bcrypt('password'),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
         ]);
 
-        DB::table('users')->insert([
+        User::create([
             'name' => 'Jeff Madsen',
             'handle' => 'codebyjeff',
             'email' => 'jrmadsen67@gmail.com',
             'password' => bcrypt('password'),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
         ]);
     }
 }
