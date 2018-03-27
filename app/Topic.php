@@ -16,6 +16,9 @@ class Topic extends Model
         'additional',
         'includes_mentoring',
         'willing_to_present',
+        'created_at',
+        'updated_at',
+        'hidden_at',
         'user_id',
     ];
 
