@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Topic;
+use App\TopicPageView;
 use Illuminate\Http\Request;
 
 class TopicsController extends Controller
@@ -24,11 +25,33 @@ class TopicsController extends Controller
         ]);
     }
 
-    public function show(Topic $topic)
+    public function show(Request $request, Topic $topic)
     {
+        $this->track($request, $topic);
+
         return view('topics.show', [
             'topic' => $topic,
         ]);
+    }
+
+    private function track(Request $request, Topic $topic)
+    {
+        $ip = $request->ip();
+
+        if ($ip !== '127.0.0.1') {
+            $location =  geoip()->getLocation($ip);
+
+            if (isset($location["country"])) {
+                $country = $location["country"];
+                $browser = $request->userAgent();
+
+                TopicPageView::create([
+                    'country' => $country,
+                    'browser' => $browser,
+                    'topic_id' => $topic->id,
+                ]);
+            }
+        }
     }
 
     public function index()
