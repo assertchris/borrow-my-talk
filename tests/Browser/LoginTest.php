@@ -25,7 +25,6 @@ class LoginTest extends DuskTestCase
             $browser
                 ->visit(route('login'))
                 ->click('@submit')
-                ->pause(500)
                 ->assertSee('email field is required')
                 ->assertSee('password field is required');
         });
@@ -44,7 +43,6 @@ class LoginTest extends DuskTestCase
                 ->type('@email', 'foo@bar.baz')
                 ->type('@password', 'bar')
                 ->click('@submit')
-                ->pause(500)
                 ->assertSee('credentials do not match our records');
         });
     }
@@ -59,7 +57,6 @@ class LoginTest extends DuskTestCase
                 ->type('@email', $user->email)
                 ->type('@password', 'password')
                 ->click('@submit')
-                ->pause(500)
                 ->assertSee('You are logged in!');
         });
     }

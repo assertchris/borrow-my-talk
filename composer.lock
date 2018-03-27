@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cccca83a4733a07b622e69c90125e73d",
+    "content-hash": "9d5745215250823462156d756a2cd6b4",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -3925,6 +3925,48 @@
                 "yml"
             ],
             "time": "2016-02-11T16:21:17+00:00"
+        },
+        {
+            "name": "laravel-frontend-presets/tailwindcss",
+            "version": "0.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-frontend-presets/tailwindcss.git",
+                "reference": "d2539205667cf2326a61035df64b6625e6b951cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-frontend-presets/tailwindcss/zipball/d2539205667cf2326a61035df64b6625e6b951cb",
+                "reference": "d2539205667cf2326a61035df64b6625e6b951cb",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelFrontendPresets\\TailwindCssPreset\\TailwindCssPresetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelFrontendPresets\\TailwindCssPreset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel frontend preset for Tailwind CSS",
+            "keywords": [
+                "laravel",
+                "preset",
+                "tailwindcss"
+            ],
+            "time": "2018-03-18T23:41:38+00:00"
         },
         {
             "name": "laravel/dusk",
