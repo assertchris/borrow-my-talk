@@ -30,7 +30,7 @@ class CreateTopicsTable extends Migration
             // whether or not the creaator is willing to be contacted about presenting this topic again
             $table->boolean('willing_to_present')->default(false);
 
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id')->index();
             $table->timestamps();
         });
     }

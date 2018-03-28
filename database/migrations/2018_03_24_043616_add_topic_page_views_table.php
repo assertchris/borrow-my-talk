@@ -12,7 +12,7 @@ class AddTopicPageViewsTable extends Migration
             $table->increments('id');
             $table->string('country');
             $table->string('browser');
-            $table->integer('topic_id');
+            $table->unsignedInteger('topic_id')->index();
             $table->timestamps();
         });
     }

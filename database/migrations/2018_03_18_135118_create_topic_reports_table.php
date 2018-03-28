@@ -12,7 +12,7 @@ class CreateTopicReportsTable extends Migration
             $table->increments('id');
             $table->string('reasons');
             $table->string('links')->nullable();
-            $table->integer('topic_id');
+            $table->unsignedInteger('topic_id')->index();
             $table->timestamps();
         });
     }
