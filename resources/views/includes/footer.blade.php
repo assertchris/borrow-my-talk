@@ -1,7 +1,6 @@
 <footer class="bg-grey-lightest">
     <div class="
         container mx-auto text-center text-sm text-grey-dark
-        mt-8
         xs:p-4
         sm:p-8
     ">
