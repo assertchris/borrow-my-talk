@@ -2,7 +2,7 @@
 
 @section('landing.top')
     <h1 class="
-        text-grey-darkest font-serif text-center
+        text-grey-darkest font-sans text-center
         xs:text-3xl xs:my-1
         sm:text-4xl
         md:mt-8 md:mb-4 md:text-5xl
@@ -21,7 +21,7 @@
         " for="query">
             Find a topic for your next meet-up
         </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-2 text-grey-darkest" id="query" name="query" type="search">
+        <input class="appearance-none border-2 border-grey-light rounded w-full py-3 px-2 text-grey-darkest" id="query" name="query" type="search" placeholder="Search something...">
     </form>
 @endsection
 
