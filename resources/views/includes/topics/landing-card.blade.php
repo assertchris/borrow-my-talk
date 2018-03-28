@@ -1,5 +1,5 @@
 <div class="
-    flex flex-col justify-between rounded overflow-hidden shadow-md
+    bg-white flex flex-col justify-between rounded overflow-hidden shadow-md
     xs:p-4 xs:my-4 xs:w-full
     sm:p-6 sm:my-4 sm:w-full
     md:p-8 md:my-6
@@ -13,10 +13,10 @@
     @endif
 ">
     <div class="
-        text-grey-darkest font-serif font-bold text-xl tracking-wide
+        text-grey-darkest font-sans font-bold text-lg tracking-wide
     ">{{ $topic->name }}</div>
     <div class="
-        leading-normal text-grey-darkest mt-4 flex-grow
+        leading-normal text-grey-darkest mt-4 flex-grow text-normal
     ">{{ str_limit($topic->abstract, 200) }}</div>
     <div class="
         mt-4

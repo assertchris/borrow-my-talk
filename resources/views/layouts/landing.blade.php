@@ -23,6 +23,7 @@
         container
         xs:px-4
         sm:px-0 sm:mx-auto
+        mb-8
     ">
         @yield('landing.bottom')
     </div>
