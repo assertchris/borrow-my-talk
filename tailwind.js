@@ -833,14 +833,14 @@ module.exports = {
         borderColors: ["responsive", "hover"],
         borderRadius: ["responsive"],
         borderStyle: ["responsive"],
-        borderWidths: ["responsive"],
+        borderWidths: ["responsive", "hover"],
         cursor: ["responsive"],
         display: ["responsive"],
         flexbox: ["responsive"],
         float: ["responsive"],
         fonts: ["responsive"],
         fontWeights: ["responsive", "hover"],
-        height: ["responsive"],
+        height: ["responsive", "hover"],
         leading: ["responsive"],
         lists: ["responsive"],
         margin: ["responsive"],
@@ -849,7 +849,7 @@ module.exports = {
         minHeight: ["responsive"],
         minWidth: ["responsive"],
         negativeMargin: ["responsive"],
-        opacity: ["responsive"],
+        opacity: ["responsive", "hover"],
         overflow: ["responsive"],
         padding: ["responsive"],
         pointerEvents: ["responsive"],
@@ -890,6 +890,24 @@ module.exports = {
             // center: true,
             // padding: '1rem',
         }),
+        function({ addUtilities }) {
+            const newUtilities = {
+                ".transform-all": {
+                    transform: "all",
+                },
+                ".transform-duration-1": {
+                    "transition-duration": "0.1s",
+                },
+                ".transform-timing-ease-in-out": {
+                    "transform-timing-function": "ease-in-out",
+                },
+                ".transform-timing-linear": {
+                    "transform-timing-function": "linear",
+                },
+            }
+
+            addUtilities(newUtilities)
+        },
     ],
 
     /*
