@@ -18,7 +18,7 @@
             </script>
         @endif
     </head>
-    <body class="h-screen">
+    <body class="h-screen flex flex-col">
         @yield('content')
         @include('includes.footer')
         @stack('scripts')
