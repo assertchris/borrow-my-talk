@@ -904,6 +904,9 @@ module.exports = {
                 ".transform-timing-linear": {
                     "transform-timing-function": "linear",
                 },
+                ".custom-font-line-height": {
+                    "line-height": "0.75",
+                },
             }
 
             addUtilities(newUtilities)

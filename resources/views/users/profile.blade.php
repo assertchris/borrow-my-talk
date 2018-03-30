@@ -8,8 +8,8 @@
         <h1 class="
             text-grey-darkest font-serif
             xs:text-3xl xs:my-4
-            sm:text-4xl
-            md:mt-8 md:mb-8 md:text-5xl
+            sm:text-4xl sm:my-4
+            md:my-6 md:text-5xl
         ">{{ $user->name }}</h1>
         @if ($topics->count())
             <ol class="
