@@ -21,7 +21,7 @@
         " for="query">
             Find a topic for your next meet-up
         </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-2 text-grey-darkest" id="query" name="query" type="search">
+        <input class="shadow appearance-none border rounded w-full py-2 px-2 text-grey-darkest" id="query" name="query" type="search" placeholder="Search for something...">
     </form>
 @endsection
 
