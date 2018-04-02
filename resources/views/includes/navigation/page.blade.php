@@ -47,8 +47,8 @@
                         xs:hidden
                         sm:text-base
                     ">{{ auth()->user()->name }}</span>
-                    @link(route('logout'), svg('logout'), [
-                        'inline-flex ml-2',
+                    @link(route('logout'), svg('logout') . ' logout', [
+                        'action inline-flex ml-2',
                         'xs:text-sm',
                         'sm:text-base',
                     ], 'onclick="event.preventDefault(); document.getElementById(\'logout\').submit();"')
