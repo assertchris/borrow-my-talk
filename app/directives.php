@@ -17,7 +17,7 @@ Blade::directive('link', function ($expression) {
 
         [\$href, \$label] = \$params;
 
-        \$classes = ['text-brand-light'];
+        \$classes = ['text-brand-light no-underline'];
 
         if (isset(\$params[2]) && is_array(\$params[2])) {
             if (isset(\$params[2][0]) && \$params[2][0] !== false) {

@@ -89,9 +89,9 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <tr colspan="3">
+                    <td colspan="3">
                         {{ $topics->links() }}
-                    </tr>
+                    </td>
                 </tr>
             </tfoot>
         </table>

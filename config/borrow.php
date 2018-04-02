@@ -4,7 +4,7 @@ return [
     'topics' => [
         'limits' => [
             'search' => 5,
-            'index' => 15,
+            'index' => 5,
         ],
     ],
     'roles' => [
