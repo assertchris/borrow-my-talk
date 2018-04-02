@@ -26,7 +26,11 @@
             w-full
         ">
             <thead>
-                <tr>
+                <tr class="
+                    xs:hidden
+                    sm:hidden
+                    md:table-row
+                ">
                     <th class="
                         table-column-heading-large
                         xs:text-xs
