@@ -28,7 +28,7 @@
             <thead>
                 <tr>
                     <th class="
-                        w-3/4 py-2
+                        w-3/4 py-4
                         text-grey-darkest text-left tracking-wide font-bold uppercase
                         border-b-2 border-grey-lightest
                         xs:text-xs
@@ -36,20 +36,20 @@
                         md:text-sm
                     ">Name</th>
                     <th class="
-                        w-1/4 whitespace-no-wrap py-2
-                        text-grey-darkest text-center tracking-wide font-bold uppercase 
+                        w-1/4 whitespace-no-wrap py-4 pl-4
+                        text-grey-darkest text-center text-sm tracking-wide font-bold uppercase
                         border-b-2 border-grey-lightest
-                        xs:text-xs
-                        sm:text-xs
-                        md:text-sm
+                        xs:hidden
+                        sm:hidden
+                        md:table-cell
                     ">Relations</th>
                     <th class="
-                        w-1/4 whitespace-no-wrap py-2
-                        text-grey-darkest text-center tracking-wide font-bold uppercase 
+                        w-1/4 whitespace-no-wrap py-4 pl-4
+                        text-grey-darkest text-center text-sm tracking-wide font-bold uppercase 
                         border-b-2 border-grey-lightest
-                        xs:text-xs
-                        sm:text-xs
-                        md:text-sm
+                        xs:hidden
+                        sm:hidden
+                        md:table-cell
                     ">Actions</th>
                 </tr>
             </thead>
@@ -57,29 +57,38 @@
                 @foreach ($topics as $topic)
                     <tr>
                         <td class="
-                            w-3/4 py-2
+                            w-3/4 py-4
                         ">
                             @link(route('topics.edit', $topic), $topic->name)
+                            <div class="
+                                mt-4
+                                xs:block
+                                sm:block
+                                md:hidden
+                            ">
+                                @include('includes.topics.links-relations')
+                                <div class="
+                                    inline-block ml-4
+                                ">
+                                    @include('includes.topics.links-actions')
+                                </div>
+                            </div>
                         </td>
                         <td class="
-                            w-1/4 whitespace-no-wrap text-center py-2
+                            w-1/4 whitespace-no-wrap text-center py-4 pl-4
+                            xs:hidden
+                            sm:hidden
+                            md:table-cell
                         ">
-                            @link(route('topics.links.index', $topic), svg('links'))
-                            @link(route('topics.presentations.index', $topic), svg('presentations'), [
-                                'ml-2'
-                            ])
+                            @include('includes.topics.links-relations')
                         </td>
                         <td class="
-                            w-1/4 whitespace-no-wrap text-center py-2
+                            w-1/4 whitespace-no-wrap text-center py-4 pl-4
+                            xs:hidden
+                            sm:hidden
+                            md:table-cell
                         ">
-                            @link(route('topics.edit', $topic), svg('edit'))
-                            <form id="delete-{{ $topic->id }}" action="{{ route('topics.destroy', [$topic])}}" method="POST" style="display: inline">
-                                @method('DELETE')
-                                @csrf
-                                @link('#', svg('delete'), [
-                                    'ml-2'
-                                ], 'onclick="event.preventDefault(); confirm(\'Are you sure?\') && document.getElementById(\'delete-' . $topic->id . '\').submit(); "')
-                            </form>
+                            @include('includes.topics.links-actions')
                         </td>
                     </tr>
                 @endforeach
