@@ -6,13 +6,13 @@
         md:px-0
     ">
         <div class="
-            flex flex-grow flex-row items-end justify-start
+            heading
             xs:my-4
             sm:my-4
             md:my-6
         ">
             <h1 class="
-                flex-inline text-grey-darkest font-serif custom-font-line-height
+                heading-text flex-inline
                 xs:text-3xl 
                 sm:text-4xl 
                 md:text-5xl
@@ -28,25 +28,19 @@
             <thead>
                 <tr>
                     <th class="
-                        w-3/4 py-4
-                        text-grey-darkest text-left tracking-wide font-bold uppercase
-                        border-b-2 border-grey-lightest
+                        table-column-heading-large
                         xs:text-xs
                         sm:text-xs
                         md:text-sm
                     ">Name</th>
                     <th class="
-                        w-1/4 whitespace-no-wrap py-4 pl-4
-                        text-grey-darkest text-center text-sm tracking-wide font-bold uppercase
-                        border-b-2 border-grey-lightest
+                        table-column-heading-small
                         xs:hidden
                         sm:hidden
                         md:table-cell
                     ">Relations</th>
                     <th class="
-                        w-1/4 whitespace-no-wrap py-4 pl-4
-                        text-grey-darkest text-center text-sm tracking-wide font-bold uppercase 
-                        border-b-2 border-grey-lightest
+                        table-column-heading-small
                         xs:hidden
                         sm:hidden
                         md:table-cell
@@ -57,7 +51,7 @@
                 @foreach ($topics as $topic)
                     <tr>
                         <td class="
-                            w-3/4 py-4
+                            table-column-large
                         ">
                             @link(route('topics.edit', $topic), $topic->name)
                             <div class="
@@ -75,7 +69,7 @@
                             </div>
                         </td>
                         <td class="
-                            w-1/4 whitespace-no-wrap text-center py-4 pl-4
+                            table-column-small
                             xs:hidden
                             sm:hidden
                             md:table-cell
@@ -83,7 +77,7 @@
                             @include('includes.topics.links-relations')
                         </td>
                         <td class="
-                            w-1/4 whitespace-no-wrap text-center py-4 pl-4
+                            table-column-small
                             xs:hidden
                             sm:hidden
                             md:table-cell

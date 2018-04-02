@@ -9,4 +9,32 @@
     @apply .mr-1;
 }
 
+.table-column-large {
+    @apply .w-3/4 .py-4 .text-grey-darkest .text-left;
+}
+
+.table-column-small {
+    @apply w-1/4 py-4 pl-4 whitespace-no-wrap text-center;
+}
+
+.table-column-heading {
+    @apply .tracking-wide .font-bold .uppercase .border-b-2 .border-grey-lightest;
+}
+
+.table-column-heading-large {
+    @apply .table-column-large .table-column-heading;
+}
+
+.table-column-heading-small {
+    @apply .table-column-small .table-column-heading;
+}
+
+.heading {
+    @apply .flex .flex-grow .flex-row .items-end .justify-start;
+}
+
+.heading-text {
+    @apply .text-grey-darkest .font-serif .custom-font-line-height;
+}
+
 @tailwind utilities;
