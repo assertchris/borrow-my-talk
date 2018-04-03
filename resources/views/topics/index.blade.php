@@ -22,85 +22,85 @@
             ])
         </div>
         @if ($topics->count() > 0)
-        <table cellspacing="0" class="
-            w-full
-        ">
-            <thead>
-                <tr class="
-                    xs:hidden
-                    sm:hidden
-                    md:table-row
-                ">
-                    <th class="
-                        table-column-heading-large pl-2
-                        xs:text-xs
-                        sm:text-xs
-                        md:text-sm
-                    ">Name</th>
-                    <th class="
-                        table-column-heading-small
-                        xs:hidden
-                        sm:hidden
-                        md:table-cell
-                    ">Relations</th>
-                    <th class="
-                        table-column-heading-small pr-2
-                        xs:hidden
-                        sm:hidden
-                        md:table-cell
-                    ">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($topics as $topic)
+            <table cellspacing="0" class="
+                w-full
+            ">
+                <thead>
                     <tr class="
-                        hover:bg-grey-lightest
+                        xs:hidden
+                        sm:hidden
+                        md:table-row
                     ">
-                        <td class="
-                            table-column-large pl-2
+                        <th class="
+                            table-column-heading-large pl-2
+                            xs:text-xs
+                            sm:text-xs
+                            md:text-sm
+                        ">Name</th>
+                        <th class="
+                            table-column-heading-small
+                            xs:hidden
+                            sm:hidden
+                            md:table-cell
+                        ">Relations</th>
+                        <th class="
+                            table-column-heading-small pr-2
+                            xs:hidden
+                            sm:hidden
+                            md:table-cell
+                        ">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($topics as $topic)
+                        <tr class="
+                            hover:bg-grey-lightest
                         ">
-                            @link(route('topics.edit', $topic), $topic->name)
-                            <div class="
-                                mt-4
-                                xs:block
-                                sm:block
-                                md:hidden
+                            <td class="
+                                table-column-large pl-2
+                            ">
+                                @link(route('topics.edit', $topic), $topic->name)
+                                <div class="
+                                    mt-4
+                                    xs:block
+                                    sm:block
+                                    md:hidden
+                                ">
+                                    @include('includes.topics.links-relations')
+                                    <div class="
+                                        inline-block ml-4
+                                    ">
+                                        @include('includes.topics.links-actions')
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="
+                                table-column-small
+                                xs:hidden
+                                sm:hidden
+                                md:table-cell
                             ">
                                 @include('includes.topics.links-relations')
-                                <div class="
-                                    inline-block ml-4
-                                ">
-                                    @include('includes.topics.links-actions')
-                                </div>
-                            </div>
-                        </td>
-                        <td class="
-                            table-column-small
-                            xs:hidden
-                            sm:hidden
-                            md:table-cell
-                        ">
-                            @include('includes.topics.links-relations')
-                        </td>
-                        <td class="
-                            table-column-small pr-2
-                            xs:hidden
-                            sm:hidden
-                            md:table-cell
-                        ">
-                            @include('includes.topics.links-actions')
+                            </td>
+                            <td class="
+                                table-column-small pr-2
+                                xs:hidden
+                                sm:hidden
+                                md:table-cell
+                            ">
+                                @include('includes.topics.links-actions')
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            {{ $topics->links() }}
                         </td>
                     </tr>
-                @endforeach
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3">
-                        {{ $topics->links() }}
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+                </tfoot>
+            </table>
         @else
             <p>
                 You haven't created any topics yet.
