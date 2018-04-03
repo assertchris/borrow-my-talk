@@ -21,7 +21,7 @@
                     'sm:text-3xl',
                 ])
                 <a data-dropdown-menu-button href="#" class="
-                    text-brand-light ml-2
+                    text-brand-light ml-4
                     xs:inline-flex
                     sm:inline-flex
                     md:hidden
@@ -29,7 +29,7 @@
                     @svg('menu')
                 </a>
                 <div class="
-                    flex flex-grow items-center ml-2
+                    flex flex-grow items-center ml-4
                     xs:hidden
                     sm:hidden
                     md:inline-flex
@@ -48,7 +48,7 @@
                         sm:text-base
                     ">{{ auth()->user()->name }}</span>
                     @link(route('logout'), svg('logout') . ' logout', [
-                        'action inline-flex ml-2',
+                        'action inline-flex ml-4',
                         'xs:text-sm',
                         'sm:text-base',
                     ], 'onclick="event.preventDefault(); document.getElementById(\'logout\').submit();"')

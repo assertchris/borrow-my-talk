@@ -22,7 +22,7 @@
             ])
         </div>
         @if ($topics->count() > 0)
-        <table class="
+        <table cellspacing="0" class="
             w-full
         ">
             <thead>
@@ -32,7 +32,7 @@
                     md:table-row
                 ">
                     <th class="
-                        table-column-heading-large
+                        table-column-heading-large pl-2
                         xs:text-xs
                         sm:text-xs
                         md:text-sm
@@ -44,7 +44,7 @@
                         md:table-cell
                     ">Relations</th>
                     <th class="
-                        table-column-heading-small
+                        table-column-heading-small pr-2
                         xs:hidden
                         sm:hidden
                         md:table-cell
@@ -53,9 +53,11 @@
             </thead>
             <tbody>
                 @foreach ($topics as $topic)
-                    <tr>
+                    <tr class="
+                        hover:bg-grey-lightest
+                    ">
                         <td class="
-                            table-column-large
+                            table-column-large pl-2
                         ">
                             @link(route('topics.edit', $topic), $topic->name)
                             <div class="
@@ -81,7 +83,7 @@
                             @include('includes.topics.links-relations')
                         </td>
                         <td class="
-                            table-column-small
+                            table-column-small pr-2
                             xs:hidden
                             sm:hidden
                             md:table-cell
