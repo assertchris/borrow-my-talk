@@ -4,10 +4,6 @@
     sm:p-4
     md:p-6
 ">
-    @link(route('topics.create'), svg('create'), [
-        'xs:text-sm',
-        'sm:text-base',
-    ])
     @guest
         @link(route('login'), 'Login', [
             'xs:ml-2 xs:text-sm',
