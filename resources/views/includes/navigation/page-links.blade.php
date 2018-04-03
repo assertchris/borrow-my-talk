@@ -1,9 +1,9 @@
-@link(route('topics.create'), svg('create'), [
-    'inline-flex',
-    'xs:text-sm',
-    'sm:text-base',
-])
 @auth
+    @link(route('topics.create'), svg('create'), [
+        'inline-flex',
+        'xs:text-sm',
+        'sm:text-base',
+    ])
     @link(route('topics.index'), 'Topics', [
         'inline-flex ml-4',
         'xs:text-sm',

@@ -30,7 +30,7 @@
                             leading-normal
                             mb-4
                         ">
-                            @markdown(str_limit($topic->abstract, 250))
+                            @markdown($topic->abstract, 250)
                         </div>
                         @if ($topic->presentations->count())
                             <ol class="
