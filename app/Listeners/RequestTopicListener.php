@@ -18,12 +18,12 @@ class RequestTopicListener implements ShouldQueue
     {
         $data = collect($event->data);
 
-        Mail::send(new RequestTopicMailToPresenter(
+        Mail::queue(new RequestTopicMailToPresenter(
             $event->topic,
             $event->data
         ));
         
-        Mail::send(new RequestTopicMailToRequester(
+        Mail::queue(new RequestTopicMailToRequester(
             $event->topic,
             $event->data
         ));
