@@ -15,7 +15,7 @@ class ReportTopicListener implements ShouldQueue
 
     public function handle(ReportTopicEvent $event)
     {
-        Mail::send(new ReportTopicMail(
+        Mail::queue(new ReportTopicMail(
             $event->topic,
             $event->reasons,
             $event->links
