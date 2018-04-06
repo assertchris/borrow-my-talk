@@ -9,7 +9,7 @@ class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('borrow:aggregate-page-views')->everyFifteenMinutes('23:45');
+        $schedule->command('borrow:aggregate-page-views')->everyFifteenMinutes();
     }
 
     protected function commands()
