@@ -1,78 +1,56 @@
 <nav class="
-    @if (Route::is('users.profile'))
-        h-2
-        bg-brand-light
-        hover:h-16
-    @else
-        h-16
-        bg-white
-    @endif
-    mb-8 px-6 overflow-hidden
+    h-auto
+    bg-white
+    align-center justify-center border-b-2 border-grey-lightest py-4 mb-2
     transform-all transform-duration-1 transform-timing-linear
+    xs:px-2
     md:px-0
 ">
-    <div class="container mx-auto h-full">
+    <div class="container mx-auto h-full  ">
         <div class="
-            h-auto
-            flex items-end justify-center
+            h-full
+            flex items-end
         ">
-            <div class="flex flex-1 items-end justify-start">
+            <div class="
+                flex flex-grow justify-start items-end
+            ">
                 @link(url('/'), config('app.name', 'Borrow My Topic'), [
-                    false, 
-                    Route::is('users.profile') ? 'text-white' : 'text-grey-darkest',
-                    'inline-flex no-underline font-serif text-grey-darkest whitespace-no-wrap -mb-1',
-                    'xs:text-xl xs:p-1',
-                    'sm:text-3xl sm:p-2',
-                ])
-                @link(route('topics.create'), 'Create a topic', [
                     false,
-                    Route::is('users.profile') ? 'text-white' : 'text-brand-light',
-                    'inline-flex',
-                    'xs:text-sm xs:p-1',
-                    'sm:text-base sm:p-2',
+                    'inline-flex no-underline font-serif text-grey-darkest whitespace-no-wrap custom-font-line-height pb-1',
+                    'xs:text-2xl',
+                    'sm:text-3xl',
                 ])
-                @auth
-                    @link(route('topics.index'), 'Topics', [
-                        false,
-                        Route::is('users.profile') ? 'text-white' : 'text-brand-light',
-                        'inline-flex',
-                        'xs:text-sm xs:p-1',
-                        'sm:text-base sm:p-2',
-                    ])
-                    @link(route('users.settings'), 'Settings', [
-                        false,
-                        Route::is('users.profile') ? 'text-white' : 'text-brand-light',
-                        'inline-flex',
-                        'xs:text-sm xs:p-1',
-                        'sm:text-base sm:p-2',
-                    ])
-                    @link(route('users.profile', [auth()->user()]), 'Profile', [
-                        false,
-                        Route::is('users.profile') ? 'text-white' : 'text-brand-light',
-                        'inline-flex',
-                        'xs:text-sm xs:p-1',
-                        'sm:text-base sm:p-2',
-                    ])
-                @endauth
+                <a data-dropdown-menu-button href="#" class="
+                    text-brand-light ml-4
+                    xs:inline-flex
+                    sm:inline-flex
+                    md:hidden
+                ">
+                    @svg('menu')
+                </a>
+                <div class="
+                    flex flex-grow items-center ml-4
+                    xs:hidden
+                    sm:hidden
+                    md:inline-flex
+                ">
+                    @include('includes.navigation.page-links')
+                </div>
+                
             </div>
-            <div class="flex flex-1 align-center justify-end">
+            <div class="
+                flex flex-shrink no-wrap items-center justify-end
+            ">
                 @auth
                     <span class="
-                        @if (Route::is('users.profile'))
-                            text-white
-                        @else
-                            text-grey-darkest
-                        @endif
-                        inline-flex
-                        xs:text-sm xs:p-1
-                        sm:text-base sm:p-2
+                        inline-flex text-grey-darkest
+                        xs:hidden
+                        sm:text-base
                     ">{{ auth()->user()->name }}</span>
-                    @link(route('logout'), 'Logout', [
-                        false,
-                        Route::is('users.profile') ? 'text-white' : 'text-brand-light',
-                        'inline-flex',
-                        'xs:text-sm xs:p-1',
-                        'sm:text-base sm:p-2',
+                    @link(route('logout'), svg('logout') . ' logout', [
+                        'action inline-flex ml-4',
+                        'xs:text-sm',
+                        'sm:text-base',
                     ], 'onclick="event.preventDefault(); document.getElementById(\'logout\').submit();"')
                     <form id="logout" action="{{ route('logout') }}" method="POST" class="hidden">
                         {{ csrf_field() }}
@@ -80,5 +58,27 @@
                 @endauth
             </div>
         </div>
+        <div data-dropdown-menu class="
+            flex items-end justify-start mt-4
+            xs:hidden
+            sm:hidden
+            md:hidden
+        ">
+            @include('includes.navigation.page-links')
+        </div>
     </div>
 </nav>
+@push('scripts')
+    <script>
+        var button = document.querySelector("[data-dropdown-menu-button]")
+        var menu = document.querySelector("[data-dropdown-menu]")
+
+        if (button) {
+            button.addEventListener("click", function(e) {
+                e.preventDefault()
+                menu.classList.toggle("xs:hidden")
+                menu.classList.toggle("sm:hidden")
+            })
+        }
+    </script>
+@endpush
